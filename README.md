@@ -1,0 +1,2 @@
+# FUT-Champions-Web-App-Ultimate-Team-sprint-2-breif-3-
+Concevoir une application web de gestion d'équipe Ultimate Team pour EA FC 25, permettant aux utilisateurs de créer, personnaliser et gérer leurs formations tactiques et équipes de joueurs via une interface interactive.
