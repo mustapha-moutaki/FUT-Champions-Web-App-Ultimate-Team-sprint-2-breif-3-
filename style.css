@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  
+}
+
+.mainSection {
+    padding-top: 10rem;
+  width: 100%;
+  height: 140vh;
+  /* height: 100vh; */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(245, 246, 252, 0),
+    #2b2a2a 70%
+  ),
+  url("src/assets/img/stadium_background.webp");
+background-repeat: no-repeat;
+background-size: cover;
+  
+}
+
+.main {
+  width: 100%;
+  height: 90%;
+  /* background-image: url("src/assets/img/stadium_background.webp"), linear-gradient(to right, #eb01a5, #d13531); */
+  /* background-image: linear-gradient(
+      to bottom,
+      rgba(245, 246, 252, 0),
+      #2b2a2a 70%
+    ),
+    url("src/assets/img/stadium_background.webp");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 2rem;
+  flex-wrap: wrap;
+  padding: 2%;
+}
+
+
+.grid-container{
+    background-image: url(src/assets/img/tirain.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+   
+    /* margin-top: 80px; */
+    width: 110%;
+    
+}
+
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: auto auto auto auto auto; */
+  grid-template-columns: 20.5% 20.5% 20.5% 20.5% 20.5%;
+  /* grid-template-rows: 15% 15% 15% 15% 15%; */
+  /* background-color: #2196F3; */
+  /* padding: 1rem; */
+  /* margin-top: -5%; */
+  /* position: absolute; */
+  /* top: 50%; */
+  width: 150%;
+}
+.grid-item {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border: 1px solid rgba(0, 0, 0, 0.8); */
+  padding: 2rem;
+  font-size: 3rem;
+  text-align: center;
+ 
+
+  /* height: 17rem;
+  width: 15.5rem; */
+  height: 16rem;
+  width: 14.5rem;
+  position: relative;
+}
+/* grid styling end */
+
+/* form inputs start */
+.sidemain {
+    /* padding: 5rem 1rem; */
+    
+  width: 25%;
+  /* height: 58.8rem; */
+  height: 95%;
+  /* background-color: aqua; */
+  padding-top: 10rem;
+  /* overflow-y: scroll; */
+  border-radius: 1rem;
+  
+}
+.form-container{
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+.terain {
+  width: 50%;
+ 
+  /* position: relative; */
+  /* height: max-content; */
+}
+
+#terainimg {
+  width: 90%;
+  height: 140%;
+  /* z-index: 999; */
+}
+
+.card {
+  background-image: url(src/assets/img/badge_gold.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 17rem;
+  height: 20rem;
+  /* width: 11rem;
+  height: 13rem; */
+  /* border: 1px solid red; */
+ 
+  /* z-index: 999; */
+  /* top: -6rem; */
+  /* left: 0; */
+}
+.cardposition{
+    position: absolute;
+}
+
+/* <option value="gk">Goal Keeper</option>//gool
+<option value="rb">Right Back</option> dagir aymen
+<option value="cb">Center Back</option>9alb difa3
+<option value="lb">Left Back</option>dahir aysser
+<option value="rm">Right Midfield</option> wassat aymen
+<option value="cm">Center Midfield</option> wasat markazi
+<option value="lm">Left Midfield</option>wassat aysser
+<option value="rw">Right Wing</option> janah aymen
+<option value="st">Striker</option> mohajim
+<option value="lw">Left Wing</option> */ 
+
+
+
+.lb{
+    /* gride16 dagir aysser lb*/
+    top: -15rem;
+    left:7rem;
+}
+.rb{
+    /* gride20 dagir aymen rb*/
+    top: -15rem;
+    left: -7rem;
+}
+.cbl{
+    /* gride17 cb aysser*/
+    top: -5rem;
+    left:50px;
+}
+.cbr{
+    /* gride19 cb aymen*/
+    top: -5rem;
+    left: -30px;
+}
+
+.str{
+    /* gride 2 and 4 */
+    top: -5rem;
+    left: 10rem;
+
+}
+.stl{
+    /* gride 2 and 4 */
+    top: -5rem;
+    right: 10rem;
+}
+.rm{
+    /* gride 6 rm aysser*/
+    top: -10rem;
+    margin-left: 10rem;
+}
+.lm{
+    /* gride 10 lm ayemn*/
+    top: -10rem;
+    right: 10rem;
+}
+.gk{
+    /* gk */
+    top: -8rem;
+}
+.cml{
+    /* gride 12  cm aysser*/
+    top: 1.5rem;
+    left: 120px;
+
+    
+}
+.cmr{
+    /* cm ayemn */
+    top: 1.5rem;
+    right: 80px;
+}
+.cardContainer {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+  
+}
+.CountryAndTeam{
+    width: 100%;
+     height: 2rem;
+       display: flex;
+        justify-content: space-around;
+        align-items: center;
+}
+.nationality, .club, .logo{
+    width: 15%;
+     height: 50%; 
+     background-color: #6e7b7b;
+      /* border-radius: 50%; */
+}
+.playerInfos {
+  height: 83%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  justify-content: space-evenly;
+  background-image: url(/src/assets/img/cristiano.webp);
+  background-position: center;
+  background-size: cover;
+  
+}
+.player-NAme{
+   
+    margin-top:5rem;
+    /* background-color: red; */
+    text-transform: capitalize;
+    font-family:'poppins';
+    text-shadow: 0px 0px 20px rgb(255, 255, 255),
+    0px 0px 20px rgb(255, 255, 255),
+    0px 0px 20px rgb(255, 255, 255);
+   
+}
+.numdiv {
+  width: 20px;
+  height: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.playerDetails {
+  height: 2rem;
+  display: flex;
+  gap: 1px;
+  /* margin-top: rem; */
+}
+.prop1 {
+  width: 20%;
+  height: 100%;
+  /* background-color: red; */
+}
+.ca {
+  width: 100%;
+  height: 50%;
+  margin-bottom: 1px;
+  font-size: 10px;
+  font-weight: 700;
+  font-size: 10px;
+  /* background-color: green; */
+}
+
+.form-container{
+    background-color: #1e1e1e;
+}
+.form-container input{
+    background-color: #404040;
+}
+#position{
+    background-color: #404040;
+
+}
+/* @media (max-width: 1200px) {
+     .grid-container {
+         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        }
+ }
+  */
+
+  .changement{
+    /* margin-top: 20px; */
+    width: 100%;
+    height: max-content;
+    background-color: #2b2a2a;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+  .chanTeam{
+    width: 55%;
+    height: max-content;
+    /* background-color: #7c6b6b; */
+    display: flex; 
+    flex-wrap: wrap;
+    overflow: hidden;
+    gap: 2rem;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    padding-left: 30px;
+  }
+  .addplayerBtn{
+    width: 90%;
+    padding: 1rem;
+    font-family: 'poppins';
+    font-weight: 700;
+  }
+
+
+   .player-caracteristic{
+    display: none;
+  }
+
+  .goolKeper-caracteristic{
+    display: none;
+  } 
+    
+
+
+  @media (max-width: 1426px) { 
+    .grid-container { 
+        grid-template-columns: repeat(5, minmax(60px, 1fr)); 
+    } 
+    .terain {
+        width: 90%;
+        /* position: relative; */
+        /* height: max-content; */
+      }
+    .main{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .grid-container {
+        display: grid;
+        /* grid-template-columns: auto auto auto auto auto; */
+        grid-template-columns: 10% 10% 10% 10% 10%;
+        /* grid-template-rows: 15% 15% 15% 15% 15%; */
+        /* background-color: #2196F3; */
+        /* padding: 1rem; */
+        /* margin-top: -5%; */
+        /* position: absolute; */
+        /* top: 50%; */
+      }
+}
