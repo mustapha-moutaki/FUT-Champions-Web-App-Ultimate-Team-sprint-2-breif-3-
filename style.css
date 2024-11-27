@@ -47,19 +47,14 @@ background-size: cover;
 }
 
 
-.grid-container{
-    background-image: url(src/assets/img/tirain.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-   
-    /* margin-top: 80px; */
-    width: 110%;
-    
-}
 
 
 .grid-container {
+    background-image: url(src/assets/img/tirain.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+     
   display: grid;
   /* grid-template-columns: auto auto auto auto auto; */
   grid-template-columns: 20.5% 20.5% 20.5% 20.5% 20.5%;
@@ -280,21 +275,22 @@ background-size: cover;
 }
 
 .form-container{
-    background-color: #1e1e1e;
+    background-color: #1211119b;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .form-container input{
     background-color: #404040;
+}
+.form-container input{
+    outline: none;
+    border: none;
+    font-size: 1.7rem;
+    color: white;
 }
 #position{
     background-color: #404040;
 
 }
-/* @media (max-width: 1200px) {
-     .grid-container {
-         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        }
- }
-  */
 
   .changement{
     /* margin-top: 20px; */
@@ -334,30 +330,235 @@ background-size: cover;
     display: none;
   } 
     
+  .card{
+    filter: drop-shadow(15px 10px 4px #0000005f);
+    transition: .4s;
+}
+.countryselect{
+    background-color: #404040 !important;
+}
+.card:hover{
+    filter: drop-shadow(0px 0px 15px #55cca2);
+    transform: scale(1.01);
+}
 
 
-  @media (max-width: 1426px) { 
-    .grid-container { 
-        grid-template-columns: repeat(5, minmax(60px, 1fr)); 
-    } 
-    .terain {
-        width: 90%;
-        /* position: relative; */
-        /* height: max-content; */
-      }
-    .main{
-        display: flex;
-        flex-wrap: wrap;
+/* Existing general styles */
+
+@media (min-width: 710px) and (max-width: 1420px) {
+    /* Adjusting layout of the main section */
+   .mainSection{
+    width: 100%;
+    height: max-content;
+   }
+    .main {
+        flex-direction: rows; /* Stack items vertically */
+        padding: 2%; /* Adjust padding for mobile responsiveness */
+        justify-content: center;
+        /* height: 400vh; */
     }
+
+    /* Adjust grid container for smaller screens */
     .grid-container {
         display: grid;
-        /* grid-template-columns: auto auto auto auto auto; */
-        grid-template-columns: 10% 10% 10% 10% 10%;
-        /* grid-template-rows: 15% 15% 15% 15% 15%; */
-        /* background-color: #2196F3; */
+        grid-template-columns: repeat(5, minmax(60px, 1fr)); /* Adjust columns for smaller screens */
+        gap: 1rem; /* Add gap between grid items */
+        width: 100%; /* Ensure the grid takes the full width */
+        background-image: url(src/assets/img/tirain.webp); /* Ensure the background remains */
+        background-position: center;
+        background-size: cover;
+    }
+
+    .grid-item {
+        padding: 1rem; /* Reduce padding to fit content better */
+        font-size: 1.5rem; /* Reduce font size to prevent overflow */
+        height: 12rem; /* Adjust height for smaller screens */
+        width: 100%; /* Ensure grid items take full width in each row */
+    
+            /* background-color: rgba(255, 255, 255, 0.8); */
+            /* border: 1px solid rgba(0, 0, 0, 0.8); */
+            /* padding: 2rem; */
+            font-size: 3rem;
+            text-align: center;
+           
+          
+            /* height: 17rem;
+            width: 15.5rem; */
+            height: 16rem;
+            width: 14.5rem;
+            position: relative;
+          
+    }
+
+    /* Adjust the form section to be on top */
+    .sidemain {
+        width: 80%; /* Full width for the form */
+        height: 40%; /* Allow form height to adjust based on content */
+        padding-top: 0rem; /* Adjust top padding */
+         margin-bottom: 12rem; /*Add space below the form */
+        order: 1;
+        /* padding: 10rem; */
+        overflow-y: scroll;
+        /* background-color: aqua; */
+    }
+
+    .form-container {
+        
+        height: 50rem;
         /* padding: 1rem; */
-        /* margin-top: -5%; */
-        /* position: absolute; */
-        /* top: 50%; */
-      }
+        width: 100%;
+        padding: 7rem 15rem;
+        border-radius: 12px;
+        /* overflow:scroll; */
+        background-color: rgba(23, 28, 23, 0.732);
+        
+    }
+
+    .form-container input{
+        /* padding: 1.5rem !important; */
+        height: 5rem;
+        outline: none;
+        color: rgb(255, 255, 255);
+        font-family: 'poppins';
+        font-weight: 900 !important;
+        font-size: 1.9rem !important;
+       
+    }
+    /* Adjust terrain section positioning */
+    .terain {
+        width: 90%; /* Ensure it takes full width */
+        height: auto; /* Adjust height based on content */
+        padding: 1rem;
+        margin-bottom: 2rem; /* Space below the terrain section */
+        order: 2;
+    }
+
+    /* Adjust the "changement" section */
+    .changement {
+        width: 100%; /* Full width for the changes section */
+        height: auto; /* Allow height to adjust */
+        display: flex;
+         flex-direction: column; /*Stack items vertically */
+        justify-content: flex-start; /* Align items from the top */
+        padding: 5rem 1rem;
+        /* background-color: red; */
+        
+    }
+
+    .chanTeam {
+        width: 100%; /* Full width */
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly; /* Distribute items evenly */
+        gap: 1.5rem;
+    }
+
+    /* Adjust card styling for better display on smaller screens */
+    .card {
+        width: 19rem; /* Reduce card width */
+        height: 22.5rem; /* Reduce card height */
+        margin-bottom: 1rem; /* Add margin between cards */
+    }
+
+    /* Adjust card position */
+    .cardposition {
+        position: relative;
+    }
+
+    /* Adjust visibility of the player characteristics */
+    .player-caracteristic,
+    .goolKeper-caracteristic {
+        display: block; /* Show characteristics if needed */
+    }
+
+
+    /* Ensuring player name text stays readable */
+    .player-NAme {
+        font-size: 1rem; /* Smaller font size */
+        text-transform: capitalize;
+        font-family: 'Poppins', sans-serif;
+        text-shadow: 0 0 10px rgb(255, 255, 255);
+    }
+
+    /* Adjust the form input fields for smaller screens */
+    .form-container input {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    #position {
+        background-color: #404040;
+        padding: 0.8rem;
+    }
+
+    
+.lb{
+    /* gride16 dagir aysser lb*/
+    top: -15rem;
+    left:7rem;
+}
+.rb{
+    /* gride20 dagir aymen rb*/
+    top: -15rem;
+    left: -7rem;
+}
+.cbl{
+    /* gride17 cb aysser*/
+    top: -5rem;
+    left:50px;
+}
+.cbr{
+    /* gride19 cb aymen*/
+    top: -5rem;
+    left: -30px;
+}
+
+.str{
+    /* gride 2 and 4 */
+    top: -10rem;
+    left: 10rem;
+
+}
+.stl{
+    /* gride 2 and 4 */
+    top: -10rem;
+    right: 10rem;
+}
+.rm{
+    /* gride 6 rm aysser*/
+    top: -10rem;
+    margin-left: 10rem;
+}
+.lm{
+    /* gride 10 lm ayemn*/
+    top: -10rem;
+    right: 10rem;
+}
+.gk{
+    /* gk */
+    top: -5rem;
+}
+.cml{
+    /* gride 12  cm aysser*/
+    top: -2rem;
+    left: 120px;
+
+    
+}
+.cmr{
+    /* cm ayemn */
+    top: -2rem;
+    right: 80px;
+}
+
+#name{
+    font-size: 14px !important;
+}
+#photo{ font-size: 12px !important;
+}
+}
+
+.error{
+    color: red;
 }
