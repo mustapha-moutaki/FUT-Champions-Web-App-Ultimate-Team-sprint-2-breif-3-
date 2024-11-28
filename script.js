@@ -72,7 +72,7 @@ addPlayerBtn.addEventListener('click', (event) => {
 playersData.push(player);
 // saving data into local storage
 localStorage.setItem('player', JSON.stringify(playersData));
-console.log(playersData)
+// console.log(playersData)
 }
     else{
          let player = {
@@ -104,7 +104,7 @@ console.log(playersData)
 })
 
 function addPlayerToField(){
-    const allItemsArray = getAllLocalStorageItemsAsArray()
+    let allItemsArray = getAllLocalStorageItemsAsArray()
     const gkPosition = document.getElementById('gk');
     const lbposition = document.querySelector('.lb');
     const rbposition = document.querySelector('.rb');
@@ -117,64 +117,69 @@ function addPlayerToField(){
     const cmlposition = document.querySelector('.cml');
     const cmrposition = document.querySelector('.cmr');
 
-    gkPosition.innerHtml = '';
-    lbposition.innerHtml = '';
-    rbposition.innerHtml = '';
-    cblposition.innerHtml = '';
-    cbrposition.innerHtml = ''
-    strposition.innerHtml = ''
-    stlposition.innerHtml = ''
-    rmposition.innerHtml = ''
-    lmposition.innerHtml = ''
-    cmlposition.innerHtml = ''
-    cmrposition.innerHtml = ''
+    gkPosition.innerHTML = '';
+    lbposition.innerHTML = '';
+    rbposition.innerHTML = '';
+    cblposition.innerHTML = '';
+    cbrposition.innerHTML = ''
+    strposition.innerHTML = ''
+    stlposition.innerHTML = ''
+    rmposition.innerHTML = ''
+    lmposition.innerHTML = ''
+    cmlposition.innerHTML = ''
+    cmrposition.innerHTML = '';
+    allItemsArray = JSON.parse(localStorage.getItem('player')) || [];
 allItemsArray.forEach((item) =>{
-    const player = item.value;
+    // console.log(allItemsArray)
+    const player = item;
     let playerPlace = `
              <div class="cardContainer" >
-                    <div class="playerInfos">
+                    <div class="playerInfos" style ="overflow: hidden;">
                         
+                        <img src = "${profilePictureData}" id = "playerPhoto"/>
+                       
                             <div class="numdiv">
-                                <div class="playercard-25-rating">89</div>
-                                <div class="playercard-25-position">ST</div>
+                                <div class="playercard-25-rating">${player.rating}</div>
+                                <div class="playercard-25-position">${player.position}</div>
                             </div>
                           
                             <div class="playerNme">
-                               <p style="font-size: 10px; font-weight: 800;" class="player-NAme" id="playerName">${playerName}</p>
+                               <p style="font-size: 10px; font-weight: 800;" class="player-NAme" id="playerName">${player.name}</p>
                             </div>
                             <div class="playerDetails">
                                 
                                 <div class="prop1">
                                     
-                                    <div class="ca" >${player.position == 'gk'? 'DIV' : 'PAC'}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'DIV' : 'PAC'}</div>
                                     <div class="ca" >
-                                    ${player.position == 'gk'? diving : pace}
+                                    ${player.position == 'GK'? player.diving : player.pace}
                                     </div>
                                 </div>
 
                                 <div class="prop1" >
-                                    <div class="ca" >${player.position == 'gk'? 'HAN' : 'SHO'}</div>
-                                    <div class="ca" >${player.position == 'gk'? handling : shooting}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'HAN' : 'SHO'}</div>
+                                    <div class="ca" >${player.position == 'GK'? player.handling : player.shooting}</div>
                                 </div>
 
                                 <div class="prop1" >
-                                    <div class="ca" >${player.position == 'gk'? 'kIC' : 'PAS'}</div>
-                                    <div class="ca" >${player.position == 'gk'? kicking : passing}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'kIC' : 'PAS'}</div>
+                                    <div class="ca" >${player.position == 'GK'? player.kicking : player.passing}</div>
                                 </div>
 
                                 <div class="prop1" >
-                                    <div class="ca" >${player.position == 'gk'? 'REF' : 'DRI'}</div>
-                                    <div class="ca" >${player.position == 'gk'? reflexes : dribbling}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'REF' : 'DRI'}</div>
+                                    <div class="ca" >${player.position == 'GK'? player.reflexes : player.dribbling}</div>
                                 </div>
 
                                 <div class="prop1" >
-                                    <div class="ca" >${player.position == 'gk'? 'SPE' : 'DEF'}</div>
-                                    <div class="ca" >${player.position == 'gk'? speed : defending}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'SPE' : 'DEF'}</div>
+                                    <div class="ca" >${player.position == 'GK'? player.speed : player.defending}</div>
                                 </div>
 
                                 <div class="prop1" >
-                                    <div class="ca" >${player.position == 'gk'? 'POS' : 'PHY'}</div>
-                                    <div class="ca" >${player.position == 'gk'? positioning : physical}</div>
+                                    <div class="ca" >${player.position == 'GK'? 'POS' : 
+                                    'PHY'}</div>
+                                    <div class="ca" >${player.position == 'GK'? player.positioning : player.physical}</div>
                                 </div>
                             </div>
                             <div class="CountryAndTeam">
@@ -184,47 +189,52 @@ allItemsArray.forEach((item) =>{
                             </div>
                     </div>
                 </div>
-    `;
+    `
+   
+    
 
+    ;
 
-    switch (selected.value) {
-        case 'GK':   gkPosition.innerHtml += playerPlace
+console.log(profilePictureData)
+    switch (selected.value.toLowerCase()) {
+        case 'gk':   gkPosition.innerHTML += playerPlace
           
             break;
-        case 'lb' : lbposition.innerHtml += playerPlace
+        case 'lb' : lbposition.innerHTML += playerPlace
         break;
 
-        case 'rb' : rbposition.innerHtml += playerPlace
+        case 'rb' : rbposition.innerHTML += playerPlace
         break;
 
-        case 'cbl' : cblposition.innerHtml += playerPlace
+        case 'cbl' : cblposition.innerHTML += playerPlace
         break;
 
-        case 'cbr' : cbrposition.innerHtml += playerPlace
+        case 'cbr' : cbrposition.innerHTML += playerPlace
         break;
 
-        case 'str' : strposition.innerHtml += playerPlace
+        case 'str' : strposition.innerHTML += playerPlace
         break; 
         
-        case 'stl' : stlposition.innerHtml += playerPlace
+        case 'stl' : stlposition.innerHTML += playerPlace
         break;
 
-        case 'rm' : rmposition.innerHtml += playerPlace
+        case 'rm' : rmposition.innerHTML += playerPlace
         break;
 
-        case 'lm' : lmposition.innerHtml += playerPlace
+        case 'lm' : lmposition.innerHTML += playerPlace
         break;
 
-        case 'cml' : cmlposition.innerHtml += playerPlace
+        case 'cml' : cmlposition.innerHTML += playerPlace
         break;
 
-        case 'cmr' : cmrposition.innerHtml += playerPlace
+        case 'cmr' : cmrposition.innerHTML += playerPlace
         break;
         default:
             alert('no position selected')
             break;
     }
 })
+
 }
 
 // Function to get all tasks from localStorage as an array
@@ -249,47 +259,70 @@ function getAllLocalStorageItemsAsArray() {
 
 
 
+let profilePictureData;
 
-
-
-
-// form.addEventListener('keyup', (e) =>{
-//     e.preventDefault()
-// if (formValidation()) {
-//    alert("hello")
-// }
-// })
-
-
-// let inputs = form.querySelectorAll('.input'); 
-// inputs.forEach(input => { input.addEventListener('keyup', formValidation); });
-
-//phoyo 
-var loadFile = function(event) {
-            
-    var input = event.target;
-    var file = input.files[0];
-    var type = file.type;
-
-   var output = document.getElementById('preview_img');
-
-
-    output.src = URL.createObjectURL(event.target.files[0]);
-    output.onload = function() {
-        URL.revokeObjectURL(output.src) // free memory
+function loadFile(event) {
+  const reader = new FileReader();
+  
+  reader.onload = function () {
+    profilePictureData = reader.result;    
+    document.getElementById("preview_img").src = profilePictureData;     
+     
+    const playerInfosDiv = document.getElementById('playerInfos');
+    if (playerInfosDiv) {
+      playerInfosDiv.style.backgroundImage = `url(${profilePictureData})`;   
+      console.log("Background image set successfully.");
+    } else {
+      console.error("Element with id 'playerInfos' not found.");
     }
-};
-
-let loadfileFlag = function(e){
-    let input = e.target;
-    let file = input.files[0];
-    type =file.type;
-    let output = document.getElementById('flag-view');
-    output.src = URL.createObjectURL(e.target.files[0])
-    output.onload = function(){
-        URL.revokeObjectURL(output.src) // free memory
-    }
+  };
+  
+  if (event.target.files[0]) {
+    reader.readAsDataURL(event.target.files[0]);
+  } else {
+    console.error("No file selected.");
+  }
 }
+
+
+
+// // form.addEventListener('keyup', (e) =>{
+// //     e.preventDefault()
+// // if (formValidation()) {
+// //    alert("hello")
+// // }
+// // })
+
+
+// // let inputs = form.querySelectorAll('.input'); 
+// // inputs.forEach(input => { input.addEventListener('keyup', formValidation); });
+
+// //phoyo 
+// // var loadFile = function(event) {
+            
+// //     var input = event.target;
+// //     var file = input.files[0];
+// //     var type = file.type;
+
+// //    var output = document.getElementById('preview_img');
+
+
+// //     output.src = URL.createObjectURL(event.target.files[0]);
+// //     output.onload = function() {
+// //         URL.revokeObjectURL(output.src) // free memory
+// //     }
+// // };
+
+// let loadfileFlag = function(e){
+//     let input = e.target;
+//     let file = input.files[0];
+//     type =file.type;
+//     let output = document.getElementById('flag-view');
+//     output.src = URL.createObjectURL(e.target.files[0])
+//     output.onload = function(){
+//         URL.revokeObjectURL(output.src) // free memory
+//     }
+// }
 
 
 //form validation
