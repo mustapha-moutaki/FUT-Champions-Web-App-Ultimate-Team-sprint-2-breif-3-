@@ -428,11 +428,11 @@
                         <label class="block text-white font-medium">nationality photo</label>
                         <div class="flex items-center space-x-6 h-20">                          
                             <div class="shrink-0">
-                              <img id='preview_img' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/736x/5f/be/c6/5fbec6cfd1ff4f046e6d9de4e78ebc58.jpg" />
+                              <img id='flag_preview' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/736x/5f/be/c6/5fbec6cfd1ff4f046e6d9de4e78ebc58.jpg" />
                             </div>
                             <label class="block">
                               <span class="sr-only">Choose nationality photo</span>
-                              <input type="file" id="flag" onchange="loadFile(event)" class="block w-full text-sm text-slate-500
+                              <input type="file" id="flag" onchange="loadFile(event, 'flag_preview')"  class="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold
@@ -452,20 +452,16 @@
                             <span class = "error" id="clucbError"></span>
                         </div>
                 
-                        <!-- <div class="mb-4">
-                            <label for="logo" class="block text-white font-medium">Club Logo URL</label>
-                            <input type="url" id="logo" name="logo" class="w-full text-white p-6 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="clubLogoError"></span>
-                        </div> -->
+                       
                         <div class="mb-4">
                         <label class="block text-white font-medium">Club photo</label>
                         <div class="flex items-center space-x-6 h-20">                          
                             <div class="shrink-0">
-                              <img id='preview_img' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/736x/59/54/29/5954296a5007cc5a0858de17ad8efbce.jpg" />
+                              <img id='club_preview' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/736x/59/54/29/5954296a5007cc5a0858de17ad8efbce.jpg" />
                             </div>
                             <label class="block">
                               <span class="sr-only">Choose club photo</span>
-                              <input type="file" id="logo" onchange="loadFile(event)" class="block w-full text-sm text-slate-500
+                              <input type="file" id="logo" onchange="loadFile(event, 'club_preview')"  class="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
                                 file:text-sm file:font-semibold
@@ -583,6 +579,39 @@
         </div>
     </div>
    
+
+<div class="d">
+    <div id="popup-modal" tabindex="-1" class="popclass overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center">
+        <div class="modal-content">
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <button type="button" class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="popup-modal" id="closeModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+                <div class="p-4 lg:p-5 text-center">
+                    <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                    </svg>
+                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400" id="nameplayerChange">You can delete or edit player</h3>
+                    <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center" id="delete-btn" onclick="deletePlayer(event)">
+                        DELETE
+                    </button>
+                    <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">EDIT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+        
+      
+        
+    
+    <i class="fa-solid fa-trash">delete</i>
+    <i class="fa-regular fa-pen-to-square"></i>
+
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/8c368585c9.js" crossorigin="anonymous"></script>
 </body>
