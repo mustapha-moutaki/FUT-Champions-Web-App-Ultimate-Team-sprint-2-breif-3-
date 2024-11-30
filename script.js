@@ -30,7 +30,9 @@ let    speed = document.getElementById('speed');
 let    positioning = document.getElementById("positioning");
 
 
-
+// added code new ===============
+let count = 0;
+// added code new ===============
 
 
 //functions
@@ -53,64 +55,8 @@ if (localStorage.player != null) {
 } else {
     playersData = [];
 }
-// localStorage.clear()
-addPlayerBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const photoData = document.getElementById('photo').getAttribute('data-photo') || '';
-    const flagData = document.getElementById('flag').getAttribute('data-photo') || '';
-    const clubLogoData = document.getElementById('logo').getAttribute('data-photo') || '';
-  
-    if (selected.value == 'GK') {
-        let player = {
-        name: playerName.value,
-        photo: photoData,
-        position: selected.value,
-        nationality: nationality.value,
-        flag: flagData,
-        club: clubName.value,
-        clubLogo: clubLogoData,
-        rating: rating.value,
-       
-        // goal keeper
-        diving:diving.value,
-        handling:handling.value,
-        kicking:kicking.value,
-        reflexes:reflexes.value,
-        speed:speed.value,
-        positioning:positioning.value,
-    }
-// pushing player to array
-playersData.push(player);
-// saving data into local storage
-localStorage.setItem('player', JSON.stringify(playersData));
-// console.log(playersData)
-}
-    else{
-         let player = {
-            name: playerName.value,
-            photo: photoData,
-            position: selected.value,
-            nationality: nationality.value,
-            flag: flagData,
-            club: clubName.value,
-            clubLogo: clubLogoData,
-            rating: rating.value,
-            // player
-            pace: pace.value,
-            shooting: shooting.value,
-            passing: passing.value,
-            dribbling: dribbling.value,
-            defending: defending.value,
-            physical: physical.value,
-    }
-    // pushing player to array
-    playersData.push(player);
-    // saving data into local storage
-    localStorage.setItem('player', JSON.stringify(playersData));
-    console.log(playersData)
 
-    addPlayerToField();
-
+function reset(){
 document.getElementById('position').value ='';
 document.getElementById('name').value ='';
 document.getElementById('photo').value ='';
@@ -134,18 +80,111 @@ document.getElementById('kicking').value ='';
 document.getElementById('reflexes').value ='';
 document.getElementById('speed').value ='';
 document.getElementById("positioning").value ='';
+   
+}
+// localStorage.clear()
+addPlayerBtn.addEventListener('click', (event) => {
+    event.preventDefault();
 
+        if (formValidation()) {
+            
+            let playersData = JSON.parse(localStorage.getItem('player')) || [];
+            const photoData = document.getElementById('photo').getAttribute('data-photo') || '';
+            const flagData = document.getElementById('flag').getAttribute('data-photo') || '';
+            const clubLogoData = document.getElementById('logo').getAttribute('data-photo') || '';
+          
+            if (selected.value == 'GK') {
+                let player = {
+                name: playerName.value,
+                photo: photoData,
+                position: selected.value,
+                nationality: nationality.value,
+                flag: flagData,
+                club: clubName.value,
+                clubLogo: clubLogoData,
+                rating: rating.value,
+               
+                // goal keeper
+                diving:diving.value,
+                handling:handling.value,
+                kicking:kicking.value,
+                reflexes:reflexes.value,
+                speed:speed.value,
+                positioning:positioning.value,
+            }
+        // pushing player to array
+        playersData.push(player);
+        // saving data into local storage
+        localStorage.setItem('player', JSON.stringify(playersData));
+        // console.log(playersData)
+        
+         addPlayerToField();
+        
+         console.log(`Player "${player.name}" added successfully.`);
+         // Reset the form fields
+         reset();
+        }
+            else{
+                 let player = {
+                    name: playerName.value,
+                    photo: photoData,
+                    position: selected.value,
+                    nationality: nationality.value,
+                    flag: flagData,
+                    club: clubName.value,
+                    clubLogo: clubLogoData,
+                    rating: rating.value,
+                    // player
+                    pace: pace.value,
+                    shooting: shooting.value,
+                    passing: passing.value,
+                    dribbling: dribbling.value,
+                    defending: defending.value,
+                    physical: physical.value,
+            }
+            // pushing player to array
+            playersData.push(player);
+            // saving data into local storage
+            localStorage.setItem('player', JSON.stringify(playersData));
+            // console.log(playersData)
+             // Reset the form fields
+             addPlayerToField();
+             reset();
+             console.log(`Player "${player.name}" added successfully.`);
+        
+            
+            } 
+         
+        }else{
+            alert("please valid it")
+        }
 
    
-    } 
 
 
    
 })
 
 
+// Call the function to add the players :refresh
+addPlayerToField();
+
 function addPlayerToField() {
-    //cleaning the positions container        
+    const positionCounts = {
+        'GK': 0,
+        'CBl': 0,
+        'CBR': 0,
+        'LB': 0,
+        'RB': 0,
+        'CML': 0,
+        'CMR': 0,
+        'LM': 0,
+        'RM': 0,
+        'STR': 0,
+        'STL': 0
+    };
+
+    //cleaning the each positions      
     const positions = ['gk', 'lb', 'rb', 'cbl', 'cbr', 'str', 'stl', 'rm', 'lm', 'cml', 'cmr'];
     positions.forEach((position) => {
         const positionElement = document.getElementById(position);
@@ -226,11 +265,29 @@ function addPlayerToField() {
                     </div>
                  </div>
             `;
-            positionElement.innerHTML += playerCard;  
+ 
+            // let playerPosition = position
+            // playerPosition.forEach((item) => (item.player.position))
+            // console.log(playerPosition.forEach((item => item.player.position)))
+
+            if (positionCounts[player.position] === 0) {
+                positionElement.innerHTML += playerCard;
+                positionCounts[player.position]++;
+            } else {
+                // console.log(`${player.position}`);
+              let  cardchangement = document.getElementById('changementCard')
+              cardchangement.innerHTML += playerCard;
+              console.log()
+            }
+
+
+            // positionElement.innerHTML += playerCard;
         }
     });
-}
 
+    
+}
+ 
 
 // Function to get all tasks from localStorage as an array
 function getAllLocalStorageItemsAsArray() {
@@ -278,94 +335,6 @@ function loadFile(event) {
 }
 
 
-//form validation
-function formValidation(){
-        // let form = document.getElementById('playerForm');
-        let inputsErrors = form.querySelectorAll('.error');
-
-        inputsErrors.forEach((err) => (err.textContent = ''));
-        inputsErrors.forEach((err) => (err.style.color = 'red'));
-        inputsErrors.forEach((err) => (err.style.fontStyle = 'italic'));
-
-        let isValid = true;
-
-        // name validation
-        // let nameRegex = /^[a-zA-Z]+ \s[a-zA-Z]+(\s[a-zA-Z]+)?$/
-        let nameRegex = /^[a-zA-Z]+$/
-        if(playerName.value.trim() == ''){
-            document.getElementById('nameError').textContent = "name is required ";
-            isValid = false
-        }else if(!nameRegex.test(playerName.value)){
-            document.getElementById('nameError').textContent = "Please enter the complete name.";
-        }
-
-        //player photo validation
-        let imageValue = document.getElementById('photo')
-        if(imageValue.files.length == 0){
-            document.getElementById('photoError').textContent = "Please select a photo.";
-        }
-        //flag photo validation
-        let flagImageValue = document.getElementById('flag')
-        if(flagImageValue.files.length == 0){
-            document.getElementById('flagError').textContent = "Please select a photo.";
-        }
-
-        //club photo validation
-        let clubImageValue = document.getElementById('photo')
-        if(clubImageValue.files.length == 0){
-            document.getElementById('clubError').textContent = "Please select a photo.";
-        }
-
-        //club validation
-        clubRegex = /^[a-zA-Z]+(\s[a-zA-Z]+)?$/
-        if(clubName.value.trim() == ''){
-            document.getElementById('clubError').textContent = "Club name is required ";
-            isValid = false;
-        }else if(clubRegex.test(clubName.value)){
-            document.getElementById('clubError').textContent = "Please enter the complete club name.";
-            isValid = flase
-        }
-
-
-        if(+rating < 10 || +rating > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+pace < 10 || +pace > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+shooting < 10 || +shooting > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+passing < 10 || +passing > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+dribbling < 10 || +dribbling > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+defending < 10 || +defending > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-        if(+physical < 10 || +physical > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-            //goal kiper
-            
-         if(+diving < 10 || +diving > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }if(+handling < 10 || +handling > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }if(+kicking < 10 || +kicking > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }if(+reflexes < 10 || +reflexes > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }if(+speed < 10 || +speed > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }if(+positioning < 10 || +positioning > 100){
-            document.getElementById('ratingError').textContent = "Please enter a number between 10 and 100";
-        }
-
-        return isValid;
-    }
 
 
         let popup = document.getElementById('popup-modal');
@@ -375,14 +344,23 @@ function formValidation(){
 function displayPopup(){
     popup.style.display = 'block'
 }
-// Delete function
+
 function deletePlayer(playerName) {
-    const playersData = JSON.parse(localStorage.getItem('player')) || [];
-    const updatedPlayers = playersData.filter(player => player.name !== playerName); // Remove the player by name
-    localStorage.setItem('player', JSON.stringify(updatedPlayers)); // Save updated list to localStorage
+    // Retrieve players from localStorage
+    let playersData = JSON.parse(localStorage.getItem('player')) || [];
+
+    // Filter out the player by name
+    playersData = playersData.filter(player => player.name !== playerName);
+
+    // Save the updated list back to localStorage
+    localStorage.setItem('player', JSON.stringify(playersData));
+
+    // Update the UI to reflect the changes
     addPlayerToField();
-     
+
+    console.log(`Player "${playerName}" deleted successfully.`);
 }
+
 
 // Display Popup
 function displayPopup(playerName) {
@@ -417,4 +395,22 @@ document.addEventListener('click', (event) => {
 
 // Close popup on close button click
 document.getElementById('closeModal').addEventListener('click', hidePopup);
+
+
+// edit function here andndjd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

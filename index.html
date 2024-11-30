@@ -121,7 +121,7 @@
                               <img id='preview_img' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/originals/fc/2b/fb/fc2bfb60aa2686eb7304dfb3f60b976a.gif" />
                             </div>
                             <label class="block">
-                              <span class="sr-only">Choose profile photo</span>
+                              <span class="sr-only">Choose player photo</span>
                               <input type="file" id="photo" onchange="loadFile(event)" class="block w-full text-sm text-slate-500
                                 file:mr-4 file:py-2 file:px-4
                                 file:rounded-full file:border-0
@@ -138,20 +138,20 @@
                             <select id="position" name="position" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
                                 <option value="selected" selected>choose a position</option>
                                 <option value="GK">GK</option>
-                                <option value="CBl">CB</option>
-                                <option value="CBR">CB</option>
+                                <option value="CBl">CBl</option>
+                                <option value="CBR">CBR</option>
                                 <option value="LB">LB</option>
                                 <option value="RB">RB</option>
-                                <option value="CML">CM</option>
-                                <option value="CMR">CM</option>
+                                <option value="CML">CMl</option>
+                                <option value="CMR">CMR</option>
                                 <option value="LM">LM</option>
                                 <option value="RM">RM</option>
                                 <!-- <option value="LW">LW</option>
                                 <option value="RW">RW</option> -->
-                                <option value="STR">ST</option>
-                                <option value="STL">ST</option>
+                                <option value="STL">STL</option>
+                                <option value="STR">STR</option>
                             </select>
-                            <span class = "error" id="positionError"></span>
+                            <span class = "error" id="positionError" style ="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
@@ -421,7 +421,7 @@
                                     <option value="WF" label="Wallis and Futuna">Wallis and Futuna</option>
                                 </optgroup>
                             </select>
-                            <span class = "error" id="nationalityError"></span>
+                            <span class = "error" id="nationalityError" style="color: red;"></span>
                         </div>
 
                         <div class="mb-4">
@@ -441,7 +441,7 @@
                               "/>
                             </label>
                           </div>
-                          <span class = "error" id="photoError" style="color: red;"></span>
+                          <span class = "error" id="flagError" style="color: red;"></span>
                         </div>
                     
 
@@ -449,7 +449,7 @@
                         <div class="mb-4">
                             <label for="club" class="block text-white font-medium">Club</label>
                             <input type="text" id="club" name="club" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="clucbError"></span>
+                            <span class = "error" id="clubError"></span>
                         </div>
                 
                        
@@ -470,12 +470,12 @@
                               "/>
                             </label>
                           </div>
-                          <span class = "error" id="photoError" style="color: red;"></span>
+                          <span class = "error" id="clublogoError" style="color: red;"></span>
                                 
                         <div class="mb-4">
                             <label for="rating" class="block text-white font-medium">Rating</label>
                             <input type="number" id="rating" name="rating" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="ratingError"></span>
+                            <span class = "error" id="ratingError" style="color: red;"></span>
                         </div>
                     </div>
 
@@ -483,37 +483,37 @@
                         <div class="mb-4">
                             <label for="pace" class="block text-white font-medium">Pace</label>
                             <input type="number" id="pace" name="pace" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="paceError"></span>
+                            <span class = "error" id="paceError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="shooting" class="block text-white font-medium">Shooting</label>
                             <input type="number" id="shooting" name="shooting" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="shotingError"></span>
+                            <span class = "error" id="shotingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="passing" class="block text-white font-medium">Passing</label>
                             <input type="number" id="passing" name="passing" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="passingError"></span>
+                            <span class = "error" id="passingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="dribbling" class="block text-white font-medium">Dribbling</label>
                             <input type="number" id="dribbling" name="dribbling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="dribblingError"></span>
+                            <span class = "error" id="dribblingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="defending" class="block text-white font-medium">Defending</label>
                             <input type="number" id="defending" name="defending" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="defendingError"></span>
+                            <span class = "error" id="defendingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="physical" class="block text-white font-medium">Physical</label>
                             <input type="number" id="physical" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="PhysicalError"></span>
+                            <span class = "error" id="PhysicalError" style="color: red;"></span>
                         </div>
                     </div>
 
@@ -521,37 +521,37 @@
                         <div class="mb-4">
                             <label for="diving" class="block text-white font-medium">diving</label>
                             <input type="number" id="diving" name="diving" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="divingError"></span>
+                            <span class = "error" id="divingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="shooting" class="block text-white font-medium">handling</label>
                             <input type="number" id="handling" name="handling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="handlingError"></span>
+                            <span class = "error" id="handlingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="passing" class="block text-white font-medium">kicking</label>
                             <input type="number" id="kicking" name="kicking" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="kickingError"></span>
+                            <span class = "error" id="kickingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="dribbling" class="block text-white font-medium">reflexes</label>
                             <input type="number" id="reflexes" name="reflexes" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="reflexesError"></span>
+                            <span class = "error" id="reflexesError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="defending" class="block text-white font-medium">speed</label>
                             <input type="number" id="speed" name="speed" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="speedError"></span>
+                            <span class = "error" id="speedError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="physical" class="block text-white font-medium">positioning</label>
                             <input type="number" id="positioning" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
-                            <span class = "error" id="positioningError"></span>
+                            <span class = "error" id="positioningError" style="color: red;"></span>
                         </div>
                     </div>
 
@@ -569,12 +569,15 @@
     </div>
     <div class="changement">
 
-        <div class="chanTeam">
+        <div class="chanTeam" id="changementContainer">
          
-            <div class="card">
-                <div class="cardContainer" >
-                   
-                </div>
+            <div class="card" id="changementCard">
+            </div>
+
+            <div class="card" id="changementCard">
+            </div>
+
+            <div class="card" id="changementCard">
             </div>
         </div>
     </div>
@@ -598,7 +601,9 @@
                     <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center" id="delete-btn" onclick="deletePlayer(event)">
                         DELETE
                     </button>
-                    <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">EDIT</button>
+                    <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" id="edit-btn">
+                        EDIT
+                    </button>
                 </div>
             </div>
         </div>
@@ -608,11 +613,10 @@
         
       
         
-    
-    <i class="fa-solid fa-trash">delete</i>
-    <i class="fa-regular fa-pen-to-square"></i>
+  
 
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/8c368585c9.js" crossorigin="anonymous"></script>
+    <script src="formVAlidation.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Figtree:ital,wght@0,300..900;1,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -7,23 +7,21 @@
 
 html {
   font-size: 10px;
-  
 }
 
 .mainSection {
-    padding-top: 10rem;
+  padding-top: 10rem;
   width: 100%;
   height: 140vh;
   /* height: 100vh; */
   background-image: linear-gradient(
-    to bottom,
-    rgba(245, 246, 252, 0),
-    #2b2a2a 70%
-  ),
-  url("src/assets/img/stadium_background.webp");
-background-repeat: no-repeat;
-background-size: cover;
-  
+      to bottom,
+      rgba(245, 246, 252, 0),
+      #2b2a2a 70%
+    ),
+    url("src/assets/img/stadium_background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .main {
@@ -37,15 +35,12 @@ background-size: cover;
   padding: 2%;
 }
 
-
-
-
 .grid-container {
-    background-image: url(src/assets/img/tirain.webp);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-     
+  background-image: url(src/assets/img/tirain.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
   display: grid;
   /* grid-template-columns: auto auto auto auto auto; */
   grid-template-columns: 20.5% 20.5% 20.5% 20.5% 20.5%;
@@ -56,20 +51,15 @@ background-size: cover;
   padding: 2rem;
   font-size: 3rem;
   text-align: center;
- 
 
-  /* height: 17rem;
-  width: 15.5rem; */
   height: 16rem;
   width: 14.5rem;
   position: relative;
 }
-/* grid styling end */
 
-/* form inputs start */
 .sidemain {
-    /* padding: 5rem 1rem; */
-    
+  /* padding: 5rem 1rem; */
+
   width: 25%;
   /* height: 58.8rem; */
   height: 95%;
@@ -77,12 +67,11 @@ background-size: cover;
   padding-top: 10rem;
   /* overflow-y: scroll; */
   border-radius: 1rem;
-  
 }
-.form-container{
-    overflow-y: scroll;
-    height: 100%;
-    width: 100%;
+.form-container {
+  overflow-y: scroll;
+  height: 100%;
+  width: 100%;
 }
 .terain {
   width: 50%;
@@ -101,82 +90,65 @@ background-size: cover;
   background-size: cover;
   width: 17rem;
   height: 20rem;
-  
 }
-.cardposition{
-    position: absolute;
-}
-
-/* <option value="gk">Goal Keeper</option>//gool
-<option value="rb">Right Back</option> dagir aymen
-<option value="cb">Center Back</option>9alb difa3
-<option value="lb">Left Back</option>dahir aysser
-<option value="rm">Right Midfield</option> wassat aymen
-<option value="cm">Center Midfield</option> wasat markazi
-<option value="lm">Left Midfield</option>wassat aysser
-<option value="rw">Right Wing</option> janah aymen
-<option value="st">Striker</option> mohajim
-<option value="lw">Left Wing</option> */ 
-
-
-
-.lb{
-    /* gride16 dagir aysser lb*/
-    top: -15rem;
-    left:7rem;
-}
-.rb{
-    /* gride20 dagir aymen rb*/
-    top: -15rem;
-    left: -7rem;
-}
-.cbl{
-    /* gride17 cb aysser*/
-    top: -5rem;
-    left:50px;
-}
-.cbr{
-    /* gride19 cb aymen*/
-    top: -5rem;
-    left: -30px;
+.cardposition {
+  position: absolute;
 }
 
-.str{
-    /* gride 2 and 4 */
-    top: -5rem;
-    left: 10rem;
+.lb {
+  /* gride16  lb*/
+  top: -15rem;
+  left: 7rem;
+}
+.rb {
+  /* gride20 dagir  rb*/
+  top: -15rem;
+  left: -7rem;
+}
+.cbl {
+  /* gride17 cb */
+  top: -5rem;
+  left: 50px;
+}
+.cbr {
+  /* gride19 cb */
+  top: -5rem;
+  left: -30px;
+}
 
+.str {
+  /* gride 2 and 4 */
+  top: -5rem;
+  left: 10rem;
 }
-.stl{
-    /* gride 2 and 4 */
-    top: -5rem;
-    right: 10rem;
+.stl {
+  /* gride 2 and 4 */
+  top: -5rem;
+  right: 10rem;
 }
-.rm{
-    /* gride 6 rm aysser*/
-    top: -10rem;
-    margin-left: 10rem;
+.rm {
+  /* gride 6 rm */
+  top: -10rem;
+  margin-left: 10rem;
 }
-.lm{
-    /* gride 10 lm ayemn*/
-    top: -10rem;
-    right: 10rem;
+.lm {
+  /* gride 10 lm */
+  top: -10rem;
+  right: 10rem;
 }
-.gk{
-    /* gk */
-    top: -8rem;
+.gk {
+  /* gk */
+  top: -8rem;
 }
-.cml{
-    /* gride 12  cm aysser*/
-    top: 1.5rem;
-    left: 120px;
-
-    
+.cml {
+  /* gride 12  cm */
+  top: 1.5rem;
+  left: 120px;
 }
-.cmr{
-    /* cm ayemn */
-    top: 1.5rem;
-    right: 80px;
+.cmr {
+  /* cm ayemn */
+  top: 1.5rem;
+  right: 80px;
 }
 .cardContainer {
   height: 100%;
@@ -184,28 +156,30 @@ background-size: cover;
   justify-content: center;
   align-items: center;
   padding-top: 8px;
-  
 }
-.CountryAndTeam{
-    width: 90%;
-     height: 2rem;
-       display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-top: 1rem;
+.CountryAndTeam {
+  width: 90%;
+  height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
 }
-.nationality, .club, .logo{
-    width: 25%;
-     height: 100%; 
-     background-color: #6e7b7b;
-      /* border-radius: 50%; */
-      overflow: hidden;
+.nationality,
+.club,
+.logo {
+  width: 25%;
+  height: 100%;
+  background-color: #6e7b7b;
+  /* border-radius: 50%; */
+  overflow: hidden;
 }
-.flag-img, .club-logo-img {
-    width: 100%; 
-    height: 100%;   
-    object-fit: cover;
-    /* border-radius: 5px;  */
+.flag-img,
+.club-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border-radius: 5px;  */
 }
 .playerInfos {
   height: 80%;
@@ -218,41 +192,27 @@ background-size: cover;
   background-size: cover;
   overflow: hidden !important;
   position: relative;
-/* background-color: red; */
-
-
-
-
- /* background-color: red; 
- */
- /* border: 1px solid red; */
 }
-.playerInfos #playerPhoto{
-    width: min-content;
-    height: 40%;
-    top: 5rem;
-    left: 7rem;
-    position: absolute;
-    transform: translate(-50%, -50%); 
-    overflow: hidden;
-    /* background-color: red; */
-    
-
-
+.playerInfos #playerPhoto {
+  width: min-content;
+  height: 40%;
+  top: 5rem;
+  left: 7rem;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  /* background-color: red; */
 }
-.player-NAme{
-   
-    margin-top:5rem;
-    /* background-color: red; */
-    text-transform: capitalize;
-    font-family:'poppins';
-    text-shadow: 0px 0px 20px rgb(255, 255, 255),
-    0px 0px 20px rgb(255, 255, 255),
+.player-NAme {
+  margin-top: 5rem;
+  /* background-color: red; */
+  text-transform: capitalize;
+  font-family: "poppins";
+  text-shadow: 0px 0px 20px rgb(255, 255, 255), 0px 0px 20px rgb(255, 255, 255),
     0px 0px 20px rgb(255, 255, 255);
-   
 }
-#playerName{
-    font-size: 1.5rem !important;
+#playerName {
+  font-size: 1.5rem !important;
 }
 .numdiv {
   width: 20px;
@@ -281,329 +241,299 @@ background-size: cover;
   /* background-color: green; */
 }
 
-.form-container{
-    background-color: #1211119b;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-     rgba(0, 0, 0, 0.12) 0px -12px 30px,
-      rgba(0, 0, 0, 0.12) 0px 4px 6px,
-       rgba(0, 0, 0, 0.17) 0px 12px 13px,
-        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.form-container {
+  background-color: #1211119b;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.form-container input{
-    background-color: #404040;
+.form-container input {
+  background-color: #404040;
 }
-.form-container input{
-    outline: none;
-    border: none;
-    font-size: 1.7rem;
-    color: white;
+.form-container input {
+  outline: none;
+  border: none;
+  font-size: 1.7rem;
+  color: white;
 }
-#position{
-    background-color: #404040;
-
+#position {
+  background-color: #404040;
 }
 
-  .changement{
-    /* margin-top: 20px; */
-    width: 100%;
-    height: max-content;
-    background-color: #2b2a2a;
-    /* border: 1px solid red; */
-    display: flex;
-    justify-content: left;
-    align-items: center;
-  }
-  .chanTeam{
-    width: 55%;
-    height: max-content;
-    /* background-color: #7c6b6b; */
-    display: flex; 
-    flex-wrap: wrap;
-    overflow: hidden;
-    gap: 2rem;
-    align-items: center;
-    /* justify-content: space-evenly; */
-    padding-left: 30px;
-  }
-  .addplayerBtn{
-    width: 90%;
-    padding: 1rem;
-    font-family: 'poppins';
-    font-weight: 700;
-  }
-
-
-   .player-caracteristic{
-    display: none;
-  }
-
-  .goolKeper-caracteristic{
-    display: none;
-  } 
-    
-  .card{
-    filter: drop-shadow(15px 10px 4px #0000005f);
-    transition: .4s;
+.changement {
+  /* margin-top: 20px; */
+  width: 100%;
+  height: max-content;
+  background-color: #2b2a2a;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
-#playerPhoto{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    top: -10px;
-    left: 0px;
-    /* right: 200px; */
-    
+.chanTeam {
+  width: 55%;
+  height: max-content;
+  /* background-color: #7c6b6b; */
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 2rem;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  padding-left: 30px;
 }
-.countryselect{
-    background-color: #404040 !important;
-}
-.card:hover{
-    filter: drop-shadow(0px 0px 15px #55cca2);
-    transform: scale(1.01);
+.addplayerBtn {
+  width: 90%;
+  padding: 1rem;
+  font-family: "poppins";
+  font-weight: 700;
 }
 
-.changement .card:hover{
-    filter: drop-shadow(0px 0px 15px #ff0000ee);
-    transform: scale(1.01);
+.player-caracteristic {
+  display: none;
+}
+
+.goolKeper-caracteristic {
+  display: none;
+}
+
+.card {
+  filter: drop-shadow(15px 10px 4px #0000005f);
+  transition: 0.4s;
+}
+#playerPhoto {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: -10px;
+  left: 0px;
+  /* right: 200px; */
+}
+.countryselect {
+  background-color: #404040 !important;
+}
+.card:hover {
+  filter: drop-shadow(0px 0px 15px #55cca2);
+  transform: scale(1.01);
+}
+
+.changement .card:hover {
+  filter: drop-shadow(0px 0px 15px #ff0000ee);
+  transform: scale(1.01);
 }
 /* Existing general styles */
-#popup-modal{
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 30% !important;
-    height: 40% !important;
-    
-    
+#popup-modal {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 30% !important;
+  height: 40% !important;
 }
-.d{
-    overflow: hidden;
-    width: 50%;
-    height: 100%;
+.d {
+  overflow: hidden;
+  width: 50%;
+  height: 100%;
 }
-
-
-
-
-
 
 @media (min-width: 710px) and (max-width: 1420px) {
-    /* Adjusting layout of the main section */
-   .mainSection{
+  .mainSection {
     width: 100%;
     height: max-content;
-   }
-    .main {
-        flex-direction: rows; /* Stack items vertically */
-        padding: 2%; /* Adjust padding for mobile responsiveness */
-        justify-content: center;
-        /* height: 400vh; */
-    }
+  }
+  .main {
+    flex-direction: rows;
+    padding: 2%;
+    justify-content: center;
+    /* height: 400vh; */
+  }
 
-    /* Adjust grid container for smaller screens */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(60px, 1fr)); /* Adjust columns for smaller screens */
-        gap: 1rem; /* Add gap between grid items */
-        width: 100%; /* Ensure the grid takes the full width */
-        background-image: url(src/assets/img/tirain.webp); /* Ensure the background remains */
-        background-position: center;
-        background-size: cover;
-    }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(60px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    background-image: url(src/assets/img/tirain.webp);
+    background-position: center;
+    background-size: cover;
+  }
 
-    .grid-item {
-        padding: 1rem; /* Reduce padding to fit content better */
-        font-size: 1.5rem; /* Reduce font size to prevent overflow */
-        height: 12rem; /* Adjust height for smaller screens */
-        width: 100%; /* Ensure grid items take full width in each row */
-    
-            /* background-color: rgba(255, 255, 255, 0.8); */
-            /* border: 1px solid rgba(0, 0, 0, 0.8); */
-            /* padding: 2rem; */
-            font-size: 3rem;
-            text-align: center;
-           
-          
-            /* height: 17rem;
+  .grid-item {
+    padding: 1rem;
+    font-size: 1.5rem;
+    height: 12rem;
+    width: 100%;
+
+    font-size: 3rem;
+    text-align: center;
+
+    /* height: 17rem;
             width: 15.5rem; */
-            height: 16rem;
-            width: 14.5rem;
-            position: relative;
-          
-    }
+    height: 16rem;
+    width: 14.5rem;
+    position: relative;
+  }
 
-    /* Adjust the form section to be on top */
-    .sidemain {
-        width: 80%; /* Full width for the form */
-        height: 40%; /* Allow form height to adjust based on content */
-        padding-top: 0rem; /* Adjust top padding */
-         margin-bottom: 12rem; /*Add space below the form */
-        order: 1;
-        /* padding: 10rem; */
-        overflow-y: scroll;
-        /* background-color: aqua; */
-    }
+ 
+  .sidemain {
+    width: 80%; 
+    height: 40%; 
+    padding-top: 0rem;
+    margin-bottom: 12rem; 
+    order: 1;
+    overflow-y: scroll;
+    /* background-color: aqua; */
+  }
 
-    .form-container {
-        
-        height: 50rem;
-        /* padding: 1rem; */
-        width: 100%;
-        padding: 7rem 15rem;
-        border-radius: 12px;
-        /* overflow:scroll; */
-        background-color: rgba(23, 28, 23, 0.732);
-        
-    }
+  .form-container {
+    height: 50rem;
+    /* padding: 1rem; */
+    width: 100%;
+    padding: 7rem 15rem;
+    border-radius: 12px;
+    /* overflow:scroll; */
+    background-color: rgba(23, 28, 23, 0.732) !important;
+  }
 
-    .form-container input{
-        /* padding: 1.5rem !important; */
-        height: 5rem;
-        outline: none;
-        color: rgb(255, 255, 255);
-        font-family: 'poppins';
-        font-weight: 900 !important;
-        font-size: 1.9rem !important;
-       
-    }
-    /* Adjust terrain section positioning */
-    .terain {
-        width: 90%; /* Ensure it takes full width */
-        height: auto; /* Adjust height based on content */
-        padding: 1rem;
-        margin-bottom: 2rem; /* Space below the terrain section */
-        order: 2;
-    }
+  .form-container input {
+    /* padding: 1.5rem !important; */
+    height: 5rem;
+    outline: none;
+    color: rgb(255, 255, 255);
+    font-family: "poppins";
+    font-weight: 900 !important;
+    font-size: 1.9rem !important;
+  }
+  /* Adjust terrain section positioning */
+  .terain {
+    width: 90%; 
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    order: 2;
+  }
 
-    /* Adjust the "changement" section */
-    .changement {
-        width: 100%; /* Full width for the changes section */
-        height: auto; /* Allow height to adjust */
-        display: flex;
-         flex-direction: column; /*Stack items vertically */
-        justify-content: flex-start; /* Align items from the top */
-        padding: 5rem 1rem;
-        /* background-color: red; */
-        
-    }
+  .changement {
+    width: 100%; 
+    height: auto; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    padding: 5rem 1rem;
+  
+  }
 
-    .chanTeam {
-        width: 100%; /* Full width */
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly; /* Distribute items evenly */
-        gap: 1.5rem;
-    }
+  .chanTeam {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    gap: 1.5rem;
+  }
 
-    /* Adjust card styling for better display on smaller screens */
-    .card {
-        width: 19rem; /* Reduce card width */
-        height: 22.5rem; /* Reduce card height */
-        margin-bottom: 1rem; /* Add margin between cards */
-    }
+ 
+  .card {
+    width: 19rem; 
+    height: 22.5rem; 
+    margin-bottom: 1rem; 
+  }
 
-    /* Adjust card position */
-    .cardposition {
-        position: relative;
-    }
+  /* Adjust card position */
+  .cardposition {
+    position: relative;
+  }
 
-    /* Adjust visibility of the player characteristics */
-    .player-caracteristic,
-    .goolKeper-caracteristic {
-        display: block; /* Show characteristics if needed */
-    }
+  
+  .player-caracteristic,
+  .goolKeper-caracteristic {
+    display: block;
+  }
 
 
-    /* Ensuring player name text stays readable */
-    .player-NAme {
-        font-size: 1rem; /* Smaller font size */
-        text-transform: capitalize;
-        font-family: 'Poppins', sans-serif;
-        text-shadow: 0 0 10px rgb(255, 255, 255);
-    }
+  .player-NAme {
+    font-size: 1rem; 
+    text-transform: capitalize;
+    font-family: "Poppins", sans-serif;
+    text-shadow: 0 0 10px rgb(255, 255, 255);
+  }
 
-    /* Adjust the form input fields for smaller screens */
-    .form-container input {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
+  .form-container input {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
 
-    #position {
-        background-color: #404040;
-        padding: 0.8rem;
-    }
+  #position {
+    background-color: #404040;
+    padding: 0.8rem;
+  }
 
-    
-.lb{
+  .lb {
     /* gride16 dagir aysser lb*/
     top: -15rem;
-    left:7rem;
-}
-.rb{
+    left: 7rem;
+  }
+  .rb {
     /* gride20 dagir aymen rb*/
     top: -15rem;
     left: -7rem;
-}
-.cbl{
+  }
+  .cbl {
     /* gride17 cb aysser*/
     top: -5rem;
-    left:50px;
-}
-.cbr{
+    left: 50px;
+  }
+  .cbr {
     /* gride19 cb aymen*/
     top: -5rem;
     left: -30px;
-}
+  }
 
-.str{
+  .str {
     /* gride 2 and 4 */
     top: -10rem;
     left: 10rem;
-
-}
-.stl{
+  }
+  .stl {
     /* gride 2 and 4 */
     top: -10rem;
     right: 10rem;
-}
-.rm{
+  }
+  .rm {
     /* gride 6 rm aysser*/
     top: -10rem;
     margin-left: 10rem;
-}
-.lm{
+  }
+  .lm {
     /* gride 10 lm ayemn*/
     top: -10rem;
     right: 10rem;
-}
-.gk{
+  }
+  .gk {
     /* gk */
     top: -5rem;
-}
-.cml{
+  }
+  .cml {
     /* gride 12  cm aysser*/
     top: -2rem;
     left: 120px;
-
-    
-}
-.cmr{
+  }
+  .cmr {
     /* cm ayemn */
     top: -2rem;
     right: 80px;
-}
+  }
 
-#name{
+  #name {
     font-size: 14px !important;
-}
-#photo{ font-size: 12px !important;
-}
-}
-
-.error{
-    color: red;
+  }
+  #photo {
+    font-size: 12px !important;
+  }
 }
 
+.error {
+  color: red;
+  font-size: 19px !important;
+}
