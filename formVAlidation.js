@@ -28,7 +28,7 @@ function formValidation() {
         isValid = false;
     }
 
-    let clubRegex = /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+    let clubRegex = /^[a-zA-Z]\s+(\s[a-zA-Z]\s+)?$/;
     if (clubName.value.trim() === '') {
         document.getElementById('clubError').textContent = "Club name is required.";
         isValid = false;
@@ -114,6 +114,11 @@ if (!clubLogoData) {
             document.getElementById('positioningError').textContent = "Please enter a number between 10 and 100.";
             isValid = false;
         }
+    }
+    let option1 = document.querySelector('input[name="option"]:checked').value
+    if(option1 == ''){
+        document.getElementById('optionError').textContent = "Please select a position.";
+        isValid
     }
 
     return isValid;

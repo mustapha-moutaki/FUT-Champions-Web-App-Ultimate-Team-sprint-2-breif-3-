@@ -10,10 +10,42 @@
 <body>
 
 
-
+    <header>
+        <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl gap-10">
+                <a href="https://flowbite.com" class="flex items-center">
+                    <img id='preview_img' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/originals/13/d5/ac/13d5ac6764a81deea8746f7034d33d91.gif"/>
+                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white" id="logoNAme">TEAM BUILDER</span>
+                </a>
+               
+                <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+                    <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">New Team</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">players</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
+                        </li>
+                      
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
     <div class="mainSection">
+        <!-- <div class="logoset"> <img id='preview_img' class="h-16 w-16 object-cover rounded-full" src="https://i.pinimg.com/originals/fc/2b/fb/fc2bfb60aa2686eb7304dfb3f60b976a.gif"/>
+        <h1>TEAM BUILDER</h1>
+        </div> -->
         <div class="main"><!--display flex-->
-
         <section class="terain">
         <!-- <img src="src/assets/img/tirain.webp" alt="" id="terainimg"> -->
         <div class="grid-container">
@@ -21,41 +53,65 @@
             
         </div>
         <div class="grid-item">
-            <div class="card str cardposition" id="str">
+            <div class="card str cardposition indefaultstr" id="str">
                 
             </div>
+            <div class="positionname postr indefaultstrpo">
+                str
+            </div>
+            
         </div>
-        <div class="grid-item"></div>  
         <div class="grid-item">
-            <div class="card stl cardposition" id="stl">
+            
+        </div>  
+        <div class="grid-item">
+            <div class="card stl cardposition indefaultstl" id="stl">
                 
             </div>
+            <div class="positionname postl indefaultstlpo">
+                stl
+            </div>
+
         </div>
         <div class="grid-item div5"></div>
         
         <div class="grid-item">
-            <div class="card rm cardposition" id="rm">
+            <div class="card rm cardposition indefaultrm" id="rm">
                 
+            </div>
+            <div class="positionname porm indefaultrmpo">
+                    rm
             </div>
         </div>  
         <div class="grid-item">
-            <div class="card cml cardposition" id="cml">
+            <div class="card cml cardposition indefaultcml" id="cml">
                
+            </div>
+            <div class="positionname pocml indefaultcmlpo">
+                cml
             </div>
         </div>
         <div class="grid-item"></div>
         <div class="grid-item">
-            <div class="card cmr cardposition" id="cmr">
+            <div class="card cmr cardposition indefaultcmr" id="cmr">
               
+            </div>
+            <div class="positionname pocmr indefaultcmrpo">
+                cmr
             </div>
         </div>
         <div class="grid-item">
-            <div class="card lm cardposition" id="lm">
+            <div class="card lm cardposition indefaultrlm" id="lm">
                
+            </div>
+            <div class="positionname polm indefaultrlmpo">
+               lm 
             </div>
         </div>
         
-        <div class="grid-item"></div>
+        <div class="grid-item">
+            
+        </div>
         <div class="grid-item">
            
         </div>
@@ -69,10 +125,16 @@
             <div class="card lb cardposition" id="lb">
                 
             </div>
+            <div class="positionname polb">
+                lb
+            </div>
         </div>
         <div class="grid-item">
             <div class="card cbl cardposition" id="cbl">
                
+            </div>
+            <div class="positionname pocbl">
+                cbl
             </div>
         </div>
         <div class="grid-item"></div>
@@ -80,10 +142,16 @@
             <div class="card cbr cardposition" id="cbr">
                
             </div>
+            <div class="positionname pocbr">
+                cbr
+            </div>
         </div>
         <div class="grid-item">
             <div class="card rb cardposition" id="rb">
                
+            </div>
+            <div class="positionname porb">
+                rb
             </div>
         </div>
         
@@ -93,6 +161,10 @@
             <div class="card gk cardposition" id="gk">
                 
             </div>
+            <div class="positionname pogk">
+                gk
+            </div>
+           
 
          </div>
         <div class="grid-item"></div>
@@ -110,7 +182,7 @@
                     <form id="playerForm" class="w-full">
                         <div class="mb-4">
                             <label for="name" class="block text-white font-medium">Name</label>
-                            <input type="text" id="name" name="name" class="w-full p-2 border border-gray-300 rounded bg-black" placeholder="player name" required>
+                            <input type="text" id="name" name="name" class=" name w-full p-2 border border-gray-300 rounded bg-black" placeholder="player name" required>
                             <span class = "error" id="nameError"></span>
                         </div>
 
@@ -448,7 +520,7 @@
                 
                         <div class="mb-4">
                             <label for="club" class="block text-white font-medium">Club</label>
-                            <input type="text" id="club" name="club" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="text" id="club" name="club" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Club" required>
                             <span class = "error" id="clubError"></span>
                         </div>
                 
@@ -474,7 +546,7 @@
                                 
                         <div class="mb-4">
                             <label for="rating" class="block text-white font-medium">Rating</label>
-                            <input type="number" id="rating" name="rating" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="rating" name="rating" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Rating" required>
                             <span class = "error" id="ratingError" style="color: red;"></span>
                         </div>
                     </div>
@@ -482,37 +554,37 @@
                 <div class="player-caracteristic" id="player-caracteristic">
                         <div class="mb-4">
                             <label for="pace" class="block text-white font-medium">Pace</label>
-                            <input type="number" id="pace" name="pace" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="pace" name="pace" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Pace" required>
                             <span class = "error" id="paceError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="shooting" class="block text-white font-medium">Shooting</label>
-                            <input type="number" id="shooting" name="shooting" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="shooting" name="shooting" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Shooting" required>
                             <span class = "error" id="shotingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="passing" class="block text-white font-medium">Passing</label>
-                            <input type="number" id="passing" name="passing" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="passing" name="passing" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Passing" required>
                             <span class = "error" id="passingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="dribbling" class="block text-white font-medium">Dribbling</label>
-                            <input type="number" id="dribbling" name="dribbling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="dribbling" name="dribbling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Dribbling" required>
                             <span class = "error" id="dribblingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="defending" class="block text-white font-medium">Defending</label>
-                            <input type="number" id="defending" name="defending" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="defending" name="defending" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Defending" required>
                             <span class = "error" id="defendingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="physical" class="block text-white font-medium">Physical</label>
-                            <input type="number" id="physical" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="physical" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter Physical" required>
                             <span class = "error" id="PhysicalError" style="color: red;"></span>
                         </div>
                     </div>
@@ -520,40 +592,67 @@
                     <div class="goolKeper-caracteristic" id="goolKeper-caracteristic">
                         <div class="mb-4">
                             <label for="diving" class="block text-white font-medium">diving</label>
-                            <input type="number" id="diving" name="diving" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="diving" name="diving" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter diving" required>
                             <span class = "error" id="divingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="shooting" class="block text-white font-medium">handling</label>
-                            <input type="number" id="handling" name="handling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="handling" name="handling" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter handling" required>
                             <span class = "error" id="handlingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="passing" class="block text-white font-medium">kicking</label>
-                            <input type="number" id="kicking" name="kicking" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="kicking" name="kicking" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter kicking" required>
                             <span class = "error" id="kickingError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="dribbling" class="block text-white font-medium">reflexes</label>
-                            <input type="number" id="reflexes" name="reflexes" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="reflexes" name="reflexes" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter reflexes" required>
                             <span class = "error" id="reflexesError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="defending" class="block text-white font-medium">speed</label>
-                            <input type="number" id="speed" name="speed" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="speed" name="speed" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter speed" required>
                             <span class = "error" id="speedError" style="color: red;"></span>
                         </div>
                 
                         <div class="mb-4">
                             <label for="physical" class="block text-white font-medium">positioning</label>
-                            <input type="number" id="positioning" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" required>
+                            <input type="number" id="positioning" name="physical" min="0" max="100" class="w-full p-2 border border-gray-300 rounded bg-black text-white p-6" placeholder="Enter positioning" required>
                             <span class = "error" id="positioningError" style="color: red;"></span>
                         </div>
                     </div>
+
+
+
+
+
+
+<!-- shoosing place  -->
+<div class="radio-input">
+    <label class="label">
+      <input value="op1" name="option" id="value-1" type="radio" />
+      <span class="text active">Player</span>
+    </label>
+    <label class="label">
+      <input value="op2" name="option" id="value-1" type="radio" />
+      <span class="text">substitute</span>
+    </label>
+   
+  </div> <span class = "error" id="optionError" style="color: red;"></span>
+
+<!-- shoosing place  -->
+
+
+
+
+
+
+
 
                         <div class="mb-6 text-center w-30">
                             <button type="submit" class="bg-sky-500 text-white p-2 rounded hover:bg-gray-400 border-white addplayerBtn" id="submitbtn">Add Player</button>
@@ -571,14 +670,10 @@
 
         <div class="chanTeam" id="changementContainer">
          
-            <div class="card" id="changementCard">
-            </div>
+            <!-- <div class="card" id="changementCard">
+            </div> -->
 
-            <div class="card" id="changementCard">
-            </div>
-
-            <div class="card" id="changementCard">
-            </div>
+            
         </div>
     </div>
    
@@ -597,12 +692,16 @@
                     <svg class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
                     </svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400" id="nameplayerChange">You can delete or edit player</h3>
+                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400" id="nameplayerChange">Do you want to delete the player: knkl kjhkj?</h3>
                     <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center" id="delete-btn" onclick="deletePlayer(event)">
                         DELETE
                     </button>
                     <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" id="edit-btn">
                         EDIT
+                    </button>
+
+                    <button data-modal-hide="popup-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" id="Chermistry" onclick="filterPlayersByClubOrNationality()">
+                        Chermistry
                     </button>
                 </div>
             </div>
@@ -610,13 +709,23 @@
     </div>
 </div>
     
+<div class="login-box">
+    <h2>Chermistry</h2>
+    <form>
+      <div class="user-box">
         
+      </div>
       
+    </form>
+  </div>
+        
+
         
   
 
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/8c368585c9.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="formVAlidation.js"></script>
 </body>
 </html>

@@ -1,8 +1,6 @@
 //bottons
 let addPlayerBtn = document.getElementById('submitbtn');
 
-
-
 // All form elements
 let    form = document.getElementById('form')
 let    selected = document.getElementById('position');
@@ -28,12 +26,6 @@ let    kicking = document.getElementById('kicking');
 let    reflexes = document.getElementById('reflexes');
 let    speed = document.getElementById('speed');
 let    positioning = document.getElementById("positioning");
-
-
-// added code new ===============
-let count = 0;
-// added code new ===============
-
 
 //functions
 selected.addEventListener('change', () => {
@@ -111,7 +103,12 @@ addPlayerBtn.addEventListener('click', (event) => {
                 reflexes:reflexes.value,
                 speed:speed.value,
                 positioning:positioning.value,
+
+                option: document.querySelector('input[name="option"]:checked')?.value || ''
+
+            
             }
+           
         // pushing player to array
         playersData.push(player);
         // saving data into local storage
@@ -141,6 +138,9 @@ addPlayerBtn.addEventListener('click', (event) => {
                     dribbling: dribbling.value,
                     defending: defending.value,
                     physical: physical.value,
+
+                    option: document.querySelector('input[name="option"]:checked')?.value || ''
+//if the user didn't select option return '' not error            
             }
             // pushing player to array
             playersData.push(player);
@@ -151,18 +151,8 @@ addPlayerBtn.addEventListener('click', (event) => {
              addPlayerToField();
              reset();
              console.log(`Player "${player.name}" added successfully.`);
-        
-            
             } 
-         
-        }else{
-            alert("please valid it")
         }
-
-   
-
-
-   
 })
 
 
@@ -170,20 +160,6 @@ addPlayerBtn.addEventListener('click', (event) => {
 addPlayerToField();
 
 function addPlayerToField() {
-    const positionCounts = {
-        'GK': 0,
-        'CBl': 0,
-        'CBR': 0,
-        'LB': 0,
-        'RB': 0,
-        'CML': 0,
-        'CMR': 0,
-        'LM': 0,
-        'RM': 0,
-        'STR': 0,
-        'STL': 0
-    };
-
     //cleaning the each positions      
     const positions = ['gk', 'lb', 'rb', 'cbl', 'cbr', 'str', 'stl', 'rm', 'lm', 'cml', 'cmr'];
     positions.forEach((position) => {
@@ -192,7 +168,10 @@ function addPlayerToField() {
             positionElement.innerHTML = '';  
         }
     });
-
+    // let changementElement = document.getElementById('changementCard')
+    let changementElement = document.getElementById('changementContainer')
+    changementElement.innerHTML = '';
+    
         
     const allItemsArray = JSON.parse(localStorage.getItem('player')) || [];
 
@@ -263,33 +242,142 @@ function addPlayerToField() {
                               
                             </div>
                     </div>
+                    
                  </div>
+
             `;
  
-            // let playerPosition = position
-            // playerPosition.forEach((item) => (item.player.position))
-            // console.log(playerPosition.forEach((item => item.player.position)))
+//place of  changement or terain 
+if (player.option === 'op1') {
+    positionElement.innerHTML += playerCard;
+} else if(player.option === 'op2'){
+    changementElement.innerHTML += `
+                <div class="cardContainerchangement" >
+                     <div class="playerInfoschangement" traggable = "true">
+                        
+                         <img src = "${player.photo}" id = "playerPhotochangement"/>
+                       
+                             <div class="numdiv">
+                                 <div class="playercard-25-rating">${player.rating}</div>
+                                 <div class="playercard-25-position">${player.position}</div>
+                             </div>
+                          
+                             <div class="playerNme">
+                                <p style="font-size: 10px; font-weight: 800;" class="player-NAme" id="playerName">${player.name}</p>
+                             </div>
+                             <div class="playerDetails">
+                                
+                                 <div class="prop1">
+                                    
+                                     <div class="ca" >${player.position == 'GK'? 'DIV' : 'PAC'}</div>
+                                     <div class="ca" >
+                                     ${player.position == 'GK'? player.diving : player.pace}
+                                     </div>
+                                 </div>
 
-            if (positionCounts[player.position] === 0) {
-                positionElement.innerHTML += playerCard;
-                positionCounts[player.position]++;
-            } else {
-                // console.log(`${player.position}`);
-              let  cardchangement = document.getElementById('changementCard')
-              cardchangement.innerHTML += playerCard;
-              console.log()
-            }
+                                 <div class="prop1" >
+                                     <div class="ca" >${player.position == 'GK'? 'HAN' : 'SHO'}</div>
+                                     <div class="ca" >${player.position == 'GK'? player.handling : player.shooting}</div>
+                                 </div>
 
+                                 <div class="prop1" >
+                                     <div class="ca" >${player.position == 'GK'? 'kIC' : 'PAS'}</div>
+                                     <div class="ca" >${player.position == 'GK'? player.kicking : player.passing}</div>
+                                 </div>
 
-            // positionElement.innerHTML += playerCard;
+                                 <div class="prop1" >
+                                     <div class="ca" >${player.position == 'GK'? 'REF' : 'DRI'}</div>
+                                     <div class="ca" >${player.position == 'GK'? player.reflexes : player.dribbling}</div>
+                                 </div>
+
+                                 <div class="prop1" >
+                                     <div class="ca" >${player.position == 'GK'? 'SPE' : 'DEF'}</div>
+                                     <div class="ca" >${player.position == 'GK'? player.speed : player.defending}</div>
+                                 </div>
+
+                                 <div class="prop1" >
+                                     <div class="ca" >${player.position == 'GK'? 'POS' : 
+                                     'PHY'}</div>
+                                     <div class="ca" >${player.position == 'GK'? player.positioning : player.physical}</div>
+                                 </div>
+                             </div>
+                             <div class="CountryAndTeam">
+                                 <div class="nationality">
+                                 <img src="${player.flag}" class="flag-img" />                             
+                                 </div>
+                                 <div class="club" >
+                                 <img src="${player.clubLogo}" class="club-logo-img" />
+                                 </div>
+                              
+                            </div>
+                    </div>
+                    
+                 </div>
+
+            `;
+}else{
+    positionElement.innerHTML += playerCard;
+}
         }
     });
-
+dragItem();
     
 }
- 
+ //drag itrm function 
+ function dragItem(){
+    let drag = null;
+    let items = document.querySelectorAll('.playerInfoschangement');
+    items.forEach(item =>{
+        item.addEventListener('dragstart', () => {
+             drag = item; 
+             item.style.opacity = '0.5'
+        })
+        item.addEventListener('dragend', () =>{
+            drad = null;
+             item.style.opacity = '1'
+        })
+        let cards = document.querySelectorAll('.card')
+        cards.forEach(card =>{
+            card.addEventListener('dragover', (e) => {
+                e.preventDefault()
+                card.style.transform = 'scale(1.1)';
+                card.style.cursor = 'grabbing';
+                card.style.filter = 'drop-Shadow(0px 0px 5px #ffb300)';
+            })
+            card.addEventListener('drop', () =>{
+                card.append(drag)
+               
+    const playerName = drag.querySelector('#playerName').textContent;
+    let playersData = JSON.parse(localStorage.getItem('player')) || [];
 
-// Function to get all tasks from localStorage as an array
+    
+    const player = playersData.find(player => player.name === playerName);
+    if (player) {
+        player.option = 'op1'; 
+        localStorage.setItem('player', JSON.stringify(playersData));
+    }
+               drag.style.width ='13rem'
+              
+               drag.style.height ='5rem'
+               drag.style.position ='absolute'
+               drag.style.top ='2rem';
+               document.getElementById('playerPhotochangement').style.width = '60px';
+               document.getElementById('playerPhotochangement').style.height = '60px'
+               document.getElementById('playerPhotochangement').style.objectFit = 'fill';
+
+               card.style.transform = 'scale(1)';
+               card.style.cursor = 'grabbing';
+            //  location.reload(); 
+            addPlayerToField();
+              
+            })
+           
+        })
+    })
+    
+ }
+
+// Function to get all plaeyers from localStorage as an array
 function getAllLocalStorageItemsAsArray() {
     const itemsArray = [];
     for (let i = 0; i < localStorage.length; i++) {
@@ -335,8 +423,6 @@ function loadFile(event) {
 }
 
 
-
-
         let popup = document.getElementById('popup-modal');
     popup.style.display ='none';
 
@@ -344,38 +430,35 @@ function loadFile(event) {
 function displayPopup(){
     popup.style.display = 'block'
 }
-
 function deletePlayer(playerName) {
-    // Retrieve players from localStorage
     let playersData = JSON.parse(localStorage.getItem('player')) || [];
 
-    // Filter out the player by name
     playersData = playersData.filter(player => player.name !== playerName);
 
-    // Save the updated list back to localStorage
     localStorage.setItem('player', JSON.stringify(playersData));
 
-    // Update the UI to reflect the changes
     addPlayerToField();
 
     console.log(`Player "${playerName}" deleted successfully.`);
 }
 
 
-// Display Popup
+
 function displayPopup(playerName) {
     let popup = document.getElementById('popup-modal');
-    popup.style.display = 'block'; // Show the popup
+    popup.style.display = 'block'; // عرض النافذة المنبثقة
     let nameOfPlayerToChange = document.getElementById('nameplayerChange');
-    nameOfPlayerToChange.textContent = `Do you want to delete the player: ${playerName}?`;
+    nameOfPlayerToChange.textContent = `do you want to edit or delete or see chimestiey of: ${playerName}?`;
 
-  
+    
+    let editButton = document.getElementById('edit-btn');
+    editButton.setAttribute('data-name', playerName); //  
+
     let deleteButton = document.getElementById('delete-btn');
     deleteButton.onclick = function () {
         deletePlayer(playerName); 
         popup.style.display = 'none'; 
     };
-   
 }
 
 // Hide Popup
@@ -384,7 +467,7 @@ function hidePopup() {
     popup.style.display = 'none';
 }
 
-// Attach event listener to each card
+
 document.addEventListener('click', (event) => {
     const clickedCard = event.target.closest('.cardContainer'); 
     if (clickedCard) {
@@ -399,18 +482,129 @@ document.getElementById('closeModal').addEventListener('click', hidePopup);
 
 // edit function here andndjd
 
+  document.getElementById('edit-btn').onclick = function() {
+    const playerName = this.getAttribute('data-name'); 
+    editPlayer(playerName);
+    popup.style.display = 'none';
+};
+
+
+
+function editPlayer(playerName) {
+    hidePopup();
+    let playersData = JSON.parse(localStorage.getItem('player')) || [];
+    const player = playersData.find(player => player.name === playerName);
+    
+    if (!player) {
+        console.error('Player not found!');
+        return;
+    }
+
+   
+    if (player.position == 'GK') {
+        document.getElementById('goolKeper-caracteristic').style.display = 'block';
+        document.getElementById('player-caracteristic').style.display = 'none';
+
+        // Fill in the goalkeeper fields
+        document.getElementById('name').value = player.name || '';
+        document.getElementById('position').value = player.position || '';
+        document.getElementById('nationality').value = player.nationality || '';
+        document.getElementById('club').value = player.club || '';
+        document.getElementById('rating').value = player.rating || '';
+        document.getElementById('diving').value = player.diving || '';
+        document.getElementById('handling').value = player.handling || '';
+        document.getElementById('kicking').value = player.kicking || '';
+        document.getElementById('reflexes').value = player.reflexes || '';
+        document.getElementById('speed').value = player.speed || '';
+        document.getElementById('positioning').value = player.positioning || '';
+
+    } else {
+        document.getElementById('goolKeper-caracteristic').style.display = 'none';
+        document.getElementById('player-caracteristic').style.display = 'block';
+
+        // Fill in the player fields
+        document.getElementById('name').value = player.name || '';
+        document.getElementById('position').value = player.position || '';
+        document.getElementById('nationality').value = player.nationality || '';
+        document.getElementById('club').value = player.club || '';
+        document.getElementById('rating').value = player.rating || '';
+        document.getElementById('pace').value = player.pace || '';
+        document.getElementById('shooting').value = player.shooting || '';
+        document.getElementById('passing').value = player.passing || '';
+        document.getElementById('dribbling').value = player.dribbling || '';
+        document.getElementById('defending').value = player.defending || '';
+        document.getElementById('physical').value = player.physical || '';
+
+    }
+
+    playersData = playersData.filter(p => p.name !== playerName);
+
+    
+    localStorage.setItem('player', JSON.stringify(playersData));
+
+    addPlayerToField();
+
+    console.log(`Player "${playerName}" deleted successfully.`);
+
+   
+    const saveButton = document.getElementById('addPlayerBtn');
+    saveButton.onclick = function () {
+    
+        player.name = document.getElementById('name').value;
+        player.position = document.getElementById('position').value;
+        player.nationality = document.getElementById('nationality').value;
+        player.club = document.getElementById('club').value;
+        player.rating = document.getElementById('rating').value;
+
+ 
+        if (player.position === 'GK') {
+            player.diving = document.getElementById('diving').value;
+            player.handling = document.getElementById('handling').value;
+            player.kicking = document.getElementById('kicking').value;
+            player.reflexes = document.getElementById('reflexes').value;
+            player.speed = document.getElementById('speed').value;
+            player.positioning = document.getElementById('positioning').value;
+        }
+
+        else {
+            player.pace = document.getElementById('pace').value;
+            player.shooting = document.getElementById('shooting').value;
+            player.passing = document.getElementById('passing').value;
+            player.dribbling = document.getElementById('dribbling').value;
+            player.defending = document.getElementById('defending').value;
+            player.physical = document.getElementById('physical').value;
+        }
+
+        playersData.push(player);
+
+     
+        localStorage.setItem('player', JSON.stringify(playersData));
+
+      
+        addPlayerToField();
+        console.log(`Player "${playerName}" updated successfully.`);
+    };
+}
 
 
 
 
+let chermestirybox = document.querySelector('.login-box') 
+chermestirybox.style.display = 'none';
+/*
+let counter = 0
+function filterPlayersByClubOrNationality() {
+    chermestirybox.style.display = 'none';
+   console.log("test")
+  
+playersData.forEach(ply =>{
+    if (ply.club === document.getElementById('club').value || ply.nationality === document.getElementById){
+        counter++
+    }else{
+        
+    }
+    
+})
+};
 
-
-
-
-
-
-
-
-
-
-
+*/

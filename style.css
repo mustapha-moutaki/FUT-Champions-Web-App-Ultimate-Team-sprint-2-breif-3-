@@ -8,7 +8,26 @@
 html {
   font-size: 10px;
 }
+.positioncm{
+    position: absolute !important;
+    top: 13rem !important;
+    width: 3rem !important;
+    height: 4rem !important;
+    right: 25px;
+   
 
+}
+.leading-none{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-posi{
+    /* background-color: red; */
+    font-size: 1rem;
+    text-transform: uppercase;
+    /* margin-right: 200px !important; */
+}
 .mainSection {
   padding-top: 10rem;
   width: 100%;
@@ -156,7 +175,59 @@ html {
   justify-content: center;
   align-items: center;
   padding-top: 8px;
+  /* background-image: url(src/assets/img/badge_total_rush.webp); */
+  background-position: center;
+  background-size: cover;
 }
+
+.cardContainerchangement{
+    width: 200px;
+    height: 300px;
+     background-image: url(src/assets/img/badge_total_rush.webp);
+     background-size: cover;
+     transition: .5s;
+ 
+}
+.playerInfoschangement{
+    width: 150px;
+    height: 200px;
+    /* background-color: red; */
+    position: relative;
+    top: 7rem;
+    left: 3rem;
+    color: white;
+    
+}
+.playerInfoschangement .numdiv{
+    font-size: 2rem;
+    /* background-color: beige; */
+    /* margin-top: 3rem; */
+    /* position: relative; */
+}
+#playerPhotochangement{
+  width: 100px;
+  height: 100px;
+  z-index: 999;
+  position: absolute;
+  right: -1rem;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.playerInfoschangement img{
+  background-color: #0011ff00;
+  object-fit: contain;
+}
+ 
+.playerInfoschangement .playerDetails, .CountryAndTeam{
+   position: relative;
+  /* top: 3rem; */
+  /* background-color: black; */
+}
+.playerInfoschangement #playerName{
+  margin-top: 9rem;
+  font-size: 1.5rem;
+}
+
 .CountryAndTeam {
   width: 90%;
   height: 2rem;
@@ -195,13 +266,14 @@ html {
 }
 .playerInfos #playerPhoto {
   width: min-content;
-  height: 40%;
+  height: 100%;
   top: 5rem;
-  left: 7rem;
+  left: 10rem;
   position: absolute;
   transform: translate(-50%, -50%);
   overflow: hidden;
   /* background-color: red; */
+
 }
 .player-NAme {
   margin-top: 5rem;
@@ -217,8 +289,8 @@ html {
 .numdiv {
   width: 20px;
   height: 20px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 900;
 }
 .playerDetails {
   height: 2rem;
@@ -263,7 +335,7 @@ html {
 .changement {
   /* margin-top: 20px; */
   width: 100%;
-  height: max-content;
+  height:max-content;
   background-color: #2b2a2a;
   /* border: 1px solid red; */
   display: flex;
@@ -272,7 +344,7 @@ html {
 }
 .chanTeam {
   width: 55%;
-  height: max-content;
+  height: 90%;
   /* background-color: #7c6b6b; */
   display: flex;
   flex-wrap: wrap;
@@ -337,6 +409,68 @@ html {
   height: 100%;
 }
 
+.positionname{
+    height: 20px;
+    width: 50px;
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    top: 11.5rem;
+    right: -60px;
+    text-align: center;
+    font-size: 12px ;
+    font-weight: 900;
+    text-transform: uppercase;
+    /* padding: 5px; */
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px #ffb300;
+    color: rgb(181, 181, 181);
+    user-select:none;
+    border: 1px solid rgba(255, 0, 0, 0);
+    /* animation: borderTurn 4s infinite ease-in-out; */
+}
+
+
+.postr{
+    left: 14rem;
+    top: 13.5rem;
+}
+.postl{
+    right: 8.5rem;
+    top: 13.5rem;
+}
+.porm{
+    left: 16rem;
+    top: 8.5rem;
+}
+.pocmr{
+    left: -6.5rem;
+    top: 20.5rem;
+}
+.pocml{
+    left: 16rem;
+    top: 20.5rem;
+}
+.pocbl{
+    left: 8.5rem;
+    top: 13.5rem;
+}
+.pocbr{
+    right:-1rem;
+    top: 13.5rem;
+}
+.polb{
+    left: 11rem;
+    top: 4rem;
+}
+.porb{
+    right: 3rem;
+    top: 4rem;
+}
+.polm{
+    left: -8.5rem;
+    top: 8.5rem;
+}
+
 @media (min-width: 710px) and (max-width: 1420px) {
   .mainSection {
     width: 100%;
@@ -382,7 +516,7 @@ html {
     padding-top: 0rem;
     margin-bottom: 12rem; 
     order: 1;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     /* background-color: aqua; */
   }
 
@@ -531,9 +665,269 @@ html {
   #photo {
     font-size: 12px !important;
   }
+
+
+
+
+  
+.postr{
+  left: 17rem;
+  top: -10.5rem;
 }
+.postl{
+  right:3rem;
+  top: -10.5rem;
+}
+.porm{
+  left: 17rem;
+  top: -9.5rem;
+}
+.pocmr{
+  left: -.5rem;
+  top: -2rem;
+}
+.pocml{
+  left: 19rem;
+  top: -2rem;
+}
+.pocbl{
+  left:12rem;
+  top: -5.5rem;
+}
+.pocbr{
+  right:-4rem;
+  top: -5.5rem;
+}
+.polb{
+  left: 14rem;
+  top: -15rem;
+}
+.porb{
+  right: -.5rem;
+  top: -15rem;
+}
+.polm{
+  left: -3rem;
+  top: -10.5rem;
+}
+.polr{
+  left: -3rem;
+  top: -10.5rem;
+}
+.pogk{
+  top: -4rem;
+  left:7rem;
+}
+
+}
+
 
 .error {
   color: red;
   font-size: 19px !important;
+}
+
+
+
+.radio-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2px;
+    background-color: rgb(0, 0, 0);
+    padding: 4px;
+    border-radius: 10px;
+    z-index: -1;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .radio-input input {
+    display: none;
+  }
+  
+  .radio-input .label {
+    width: 50%;
+    height: 60px;
+    background: linear-gradient(to bottom, #333333, rgb(36, 35, 35));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    transition: all 0.1s linear;
+    border-top: 1px solid #4e4d4d;
+    background-color: #333333;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .label:has(input[type="radio"]:checked) {
+    box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0);
+    background: linear-gradient(to bottom, #1d1d1d, #1d1d1d);
+    border-top: none;
+  }
+  
+  .label:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  
+  .label:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+  
+  .label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+      to bottom,
+      transparent 10%,
+      transparent,
+      transparent 90%
+    );
+    transition: all 0.1s linear;
+    z-index: -1;
+  }
+  
+  .label:has(input[type="radio"]:checked)::before {
+    background: linear-gradient(
+      to bottom,
+      transparent 10%,
+      #cae2fd63,
+      transparent 90%
+    );
+  }
+  
+  .label .text {
+    color: black;
+    font-size: 15px;
+    line-height: 12px;
+    padding: 0px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.1s linear;
+    text-shadow:
+      -1px -1px 1px rgb(224, 224, 224, 0.1),
+      0px 2px 3px rgb(0, 0, 0, 0.3);
+  }
+  
+  .label input[type="radio"]:checked + .text, .active {
+    color: rgb(202, 226, 253);
+    text-shadow: 0px 0px 12px #cae2fd;
+  }
+ 
+  
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+
+
+.logoset{
+  height: 100px ;
+  width: 100% ;
+  /* background-color: red; */
+  position: absolute;
+  top: 0;
+  background-attachment:fixed;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1rem;
+}
+.logoset img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+
+
+}
+.logoset h1{
+color: white;
+font-size: 20px;
+}
+#logoNAme{
+  font-size: 24px;
+  margin-left: 20px;
+}
+header li{
+  font-size: 16px;
+}
+
+
+.cardContainerchangement:hover{
+  filter: drop-shadow(0px 0px 15px #ff0000ee);
 }
