@@ -27,7 +27,7 @@ let    reflexes = document.getElementById('reflexes');
 let    speed = document.getElementById('speed');
 let    positioning = document.getElementById("positioning");
 
-//functions
+//function to display inputs for selected position
 selected.addEventListener('change', () => {
     if (selected.value === 'GK') {
         document.getElementById('goolKeper-caracteristic').style.display = 'block';
@@ -40,8 +40,9 @@ selected.addEventListener('change', () => {
 });
 addPlayerToField()
 
-let playersData = [];
 
+// return all data from local storage if is it not empty
+let playersData = [];
 if (localStorage.player != null) {
     playersData = JSON.parse(localStorage.player);
 } else {
