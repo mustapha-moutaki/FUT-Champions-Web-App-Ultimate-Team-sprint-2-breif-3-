@@ -609,3 +609,10 @@ playersData.forEach(ply =>{
 };
 
 */
+document.addEventListener('click', (event) => {
+    const clickedCard = event.target.closest('.cardContainerchangement'); // البطاقات الخاصة بالتبديل
+    if (clickedCard) {
+        const playerName = clickedCard.querySelector('#playerName').textContent; 
+        displayPopup(playerName); // عرض نافذة التأكيد
+    }
+});
