@@ -1,4 +1,4 @@
-//bottons
+//bottom
 let addPlayerBtn = document.getElementById('submitbtn');
 
 // All form elements
@@ -49,6 +49,7 @@ if (localStorage.player != null) {
     playersData = [];
 }
 
+// reset inputs function
 function reset(){
 document.getElementById('position').value ='';
 document.getElementById('name').value ='';
@@ -76,6 +77,8 @@ document.getElementById("positioning").value ='';
    
 }
 // localStorage.clear()
+
+// add player to array => local storage function
 addPlayerBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -96,7 +99,6 @@ addPlayerBtn.addEventListener('click', (event) => {
                 club: clubName.value,
                 clubLogo: clubLogoData,
                 rating: rating.value,
-               
                 // goal keeper
                 diving:diving.value,
                 handling:handling.value,
@@ -104,19 +106,15 @@ addPlayerBtn.addEventListener('click', (event) => {
                 reflexes:reflexes.value,
                 speed:speed.value,
                 positioning:positioning.value,
-
                 option: document.querySelector('input[name="option"]:checked')?.value || ''
-
-            
             }
            
         // pushing player to array
         playersData.push(player);
         // saving data into local storage
         localStorage.setItem('player', JSON.stringify(playersData));
-        // console.log(playersData)
         
-         addPlayerToField();
+         addPlayerToField();// to update the field
         
          console.log(`Player "${player.name}" added successfully.`);
          // Reset the form fields
@@ -139,7 +137,6 @@ addPlayerBtn.addEventListener('click', (event) => {
                     dribbling: dribbling.value,
                     defending: defending.value,
                     physical: physical.value,
-
                     option: document.querySelector('input[name="option"]:checked')?.value || ''
 //if the user didn't select option return '' not error            
             }
@@ -147,7 +144,6 @@ addPlayerBtn.addEventListener('click', (event) => {
             playersData.push(player);
             // saving data into local storage
             localStorage.setItem('player', JSON.stringify(playersData));
-            // console.log(playersData)
              // Reset the form fields
              addPlayerToField();
              reset();
@@ -156,12 +152,13 @@ addPlayerBtn.addEventListener('click', (event) => {
         }
 })
 
-
 // Call the function to add the players :refresh
 addPlayerToField();
 
+
+// function to add player to field
 function addPlayerToField() {
-    //cleaning the each positions      
+    //cleaning each positions      
     const positions = ['gk', 'lb', 'rb', 'cbl', 'cbr', 'str', 'stl', 'rm', 'lm', 'cml', 'cmr'];
     positions.forEach((position) => {
         const positionElement = document.getElementById(position);
@@ -169,14 +166,15 @@ function addPlayerToField() {
             positionElement.innerHTML = '';  
         }
     });
-    // let changementElement = document.getElementById('changementCard')
+
+     //cleaning changement position
     let changementElement = document.getElementById('changementContainer')
     changementElement.innerHTML = '';
     
-        
+    // getting all players data from locaal storage    
     const allItemsArray = JSON.parse(localStorage.getItem('player')) || [];
 
-    
+    // looping through each player data and dplay it in the field
     allItemsArray.forEach((player) => {
         const position = player.position.toLowerCase();     
         const positionElement = document.getElementById(position);   
@@ -228,8 +226,7 @@ function addPlayerToField() {
                                  </div>
 
                                  <div class="prop1" >
-                                     <div class="ca" >${player.position == 'GK'? 'POS' : 
-                                     'PHY'}</div>
+                                     <div class="ca" >${player.position == 'GK'? 'POS' :'PHY'}</div>
                                      <div class="ca" >${player.position == 'GK'? player.positioning : player.physical}</div>
                                  </div>
                              </div>
@@ -324,7 +321,8 @@ if (player.option === 'op1') {
 dragItem();
     
 }
- //drag itrm function 
+
+ //drag item function 
  function dragItem(){
     let drag = null;
     let items = document.querySelectorAll('.playerInfoschangement');
@@ -368,7 +366,6 @@ dragItem();
 
                card.style.transform = 'scale(1)';
                card.style.cursor = 'grabbing';
-            //  location.reload(); 
             addPlayerToField();
               
             })
@@ -388,13 +385,14 @@ function getAllLocalStorageItemsAsArray() {
             const parsedValue = JSON.parse(value);
             itemsArray.push({ key: key, value: parsedValue });
         } catch (e) {
-            console.error("Error parsing JSON:", e);
+            console.error("Error to parse json", e);
         }
     }
     return itemsArray;
 }
 
 
+// stoking images 
 function loadFile(event) {
     const reader = new FileReader();
     reader.onload = function () {
@@ -409,7 +407,6 @@ function loadFile(event) {
         } else if (inputId === "logo") {
             previewImg = document.querySelector("img[src='https://i.pinimg.com/736x/59/54/29/5954296a5007cc5a0858de17ad8efbce.jpg']");   
         }
-
         if (previewImg) {
             previewImg.src = reader.result;
             event.target.setAttribute('data-photo', reader.result); 
@@ -424,13 +421,16 @@ function loadFile(event) {
 }
 
 
-        let popup = document.getElementById('popup-modal');
+    let popup = document.getElementById('popup-modal');
     popup.style.display ='none';
 
-   
+// DIPLAY POPUP MODAL
 function displayPopup(){
     popup.style.display = 'block'
 }
+
+
+// delete player function
 function deletePlayer(playerName) {
     let playersData = JSON.parse(localStorage.getItem('player')) || [];
 
@@ -444,16 +444,16 @@ function deletePlayer(playerName) {
 }
 
 
-
+// display popup modal
 function displayPopup(playerName) {
     let popup = document.getElementById('popup-modal');
-    popup.style.display = 'block'; // عرض النافذة المنبثقة
+    popup.style.display = 'block'; 
+
     let nameOfPlayerToChange = document.getElementById('nameplayerChange');
     nameOfPlayerToChange.textContent = `do you want to edit or delete or see chimestiey of: ${playerName}?`;
 
-    
     let editButton = document.getElementById('edit-btn');
-    editButton.setAttribute('data-name', playerName); //  
+    editButton.setAttribute('data-name', playerName);   
 
     let deleteButton = document.getElementById('delete-btn');
     deleteButton.onclick = function () {
@@ -468,7 +468,7 @@ function hidePopup() {
     popup.style.display = 'none';
 }
 
-
+// card click event
 document.addEventListener('click', (event) => {
     const clickedCard = event.target.closest('.cardContainer'); 
     if (clickedCard) {
@@ -481,8 +481,7 @@ document.addEventListener('click', (event) => {
 document.getElementById('closeModal').addEventListener('click', hidePopup);
 
 
-// edit function here andndjd
-
+// edit function here
   document.getElementById('edit-btn').onclick = function() {
     const playerName = this.getAttribute('data-name'); 
     editPlayer(playerName);
@@ -491,13 +490,14 @@ document.getElementById('closeModal').addEventListener('click', hidePopup);
 
 
 
+// edit player function
 function editPlayer(playerName) {
     hidePopup();
     let playersData = JSON.parse(localStorage.getItem('player')) || [];
     const player = playersData.find(player => player.name === playerName);
     
     if (!player) {
-        console.error('Player not found!');
+        console.error('there is no player with this name');
         return;
     }
 
