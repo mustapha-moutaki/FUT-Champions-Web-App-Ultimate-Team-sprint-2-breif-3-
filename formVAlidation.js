@@ -28,7 +28,7 @@ function formValidation() {
         isValid = false;
     }
 
-    let clubRegex = /^[a-zA-Z]\s+(\s[a-zA-Z]\s+)?$/;
+    let clubRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/;
     if (clubName.value.trim() === '') {
         document.getElementById('clubError').textContent = "Club name is required.";
         isValid = false;
