@@ -27,6 +27,60 @@ let    reflexes = document.getElementById('reflexes');
 let    speed = document.getElementById('speed');
 let    positioning = document.getElementById("positioning");
 
+
+//function to add player from dashboard
+let addplayer_dash = document.getElementById('new_player_from_dashboard');
+let form_container = document.querySelector('.form-container');
+ form_container.style.display = 'none';
+let xMark = document.querySelector('.fa-xmark')
+addplayer_dash.addEventListener('click', (e) =>{
+    e.preventDefault();
+    console.log("clicked")
+    // form_container.classList.remove('hidden');
+    form_container.style.display = 'block';
+    form_container.style.transition = '1.5s';
+    
+});
+
+xMark.addEventListener('click', () =>{
+    form_container.style.display = 'none';
+})
+
+
+// function to add player from dashboard  show stats
+
+let showStats = document.getElementById('btn_player_stats_show');
+let statsDetails = document.querySelector('.stats_of_player_details')
+statsDetails.style.display ='none'
+showStats.addEventListener('click', () => {
+    statsDetails.style.display ='block';
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //function to display inputs for selected position
 selected.addEventListener('change', () => {
     if (selected.value === 'GK') {
