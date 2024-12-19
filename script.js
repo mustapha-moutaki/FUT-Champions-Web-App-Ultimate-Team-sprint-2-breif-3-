@@ -134,7 +134,7 @@ document.getElementById("positioning").value ='';
 
 // add player to array => local storage function
 addPlayerBtn.addEventListener('click', (event) => {
-    event.preventDefault();
+     event.preventDefault();
 
         if (formValidation()) {
             
