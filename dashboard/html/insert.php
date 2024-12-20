@@ -12,7 +12,7 @@ if (!$conn) {
 
 if (isset($_POST["create"])) {
   $name = $_POST['name'];
-  $sql = "INSERT INTO players (name, position) values('$name','$position')";
+  $sql = "INSERT INTO players (name) values('$name')";
   $conn->query($sql);
 
 }

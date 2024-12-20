@@ -31,7 +31,7 @@ if (isset($_POST["create"])) {
 
     // check the inputs are not empty
     if (!empty($name) && !empty($position)) {
-        $name = mysqli_real_escape_string($conn, $name);
+        $name = mysqli_real_escape_string($conn, $name);//to ignore any psecial character
         $position = mysqli_real_escape_string($conn, $position);
 
         $sql = "INSERT INTO players (name, position) VALUES ('$name', '$position')";
@@ -46,10 +46,57 @@ if (isset($_POST["create"])) {
     }
 }
 
+// check of the club
+if (isset($_POST["create"])) {
+  $club_name = $_POST['club'];
+
+  if (!empty($club_name)) {
+      $club_name = mysqli_real_escape_string($conn, $club_name);
+
+      $sql = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
+      if ($conn->query($sql) === TRUE) {
+          echo "Club added successfully!";
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }
+  } else {
+      echo "Club name cannot be empty.";
+  }
+}
+
+// check for nationality
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['country']) && !empty($_POST['country'])) {
+        //sewlected country
+        $country = mysqli_real_escape_string($conn, $_POST['country']);
+
+        
+        $sql = "INSERT INTO countries (name) VALUES ('$country')";
+        if (mysqli_query($conn, $sql)) {
+            echo "it's done " . htmlspecialchars($country);
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+    } else {
+        echo "choose a country";
+    }
+}
+
 // getting all players   
 $sql = 'SELECT name, position, player_id FROM players';
 $result = mysqli_query($conn, $sql);
 
+// gettign all clubs 
+$sql_clubs = "SELECT club_id, club_name FROM clubs";
+$result_clubs = mysqli_query($conn, $sql_clubs);
+$clubs = mysqli_fetch_all($result_clubs, MYSQLI_ASSOC);
+mysqli_free_result($result_clubs);
+
+// getting all nationalities
+$sql_nationalities = "SELECT nationality_id, nationality_name FROM nationalities";
+$result_nationalities = mysqli_query($conn, $sql_nationalities);
+$nationalities = mysqli_fetch_all($result_nationalities, MYSQLI_ASSOC);
+mysqli_free_result($result_nationalities);
 if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
@@ -740,7 +787,7 @@ $result = mysqli_query($conn, $sql);
                             <td>
                               <div class="crud_table">
                                 <i class="fa-solid fa-pen-to-square"></i>
-                                <a href="?delete_id=<?= $player['player_id']; ?>" onclick="return confirm('Are you sure you want to delete this player?');">
+                                <a href="?delete_id=<?= $row['player_id']; ?>" onclick="return confirm('Are you sure you want to delete this player?');">
     <i class='fa-solid fa-trash'></i>
     </a>
                                 
@@ -857,87 +904,87 @@ $result = mysqli_query($conn, $sql);
             Select a country ...
           </option>
           <optgroup id="country-optgroup-Africa" label="Africa">
-            <option name="country" value="DZ" label="Algeria">Algeria</option>
-            <option name="country" value="AO" label="Angola">Angola</option>
-            <option name="country" value="BJ" label="Benin">Benin</option>
-            <option name="country" value="BW" label="Botswana">Botswana</option>
-            <option name="country" value="BF" label="Burkina Faso">
+            <option value="DZ" label="Algeria">Algeria</option>
+            <option value="AO" label="Angola">Angola</option>
+            <option value="BJ" label="Benin">Benin</option>
+            <option value="BW" label="Botswana">Botswana</option>
+            <option value="BF" label="Burkina Faso">
               Burkina Faso
             </option>
-            <option name="country" value="BI" label="Burundi">Burundi</option>
-            <option name="country" value="CM" label="Cameroon">Cameroon</option>
-            <option name="country" value="CV" label="Cape Verde">Cape Verde</option>
-            <option name="country" value="CF" label="Central African Republic">
+            <option value="BI" label="Burundi">Burundi</option>
+            <option value="CM" label="Cameroon">Cameroon</option>
+            <option value="CV" label="Cape Verde">Cape Verde</option>
+            <option value="CF" label="Central African Republic">
               Central African Republic
             </option>
-            <option name="country" value="TD" label="Chad">Chad</option>
-            <option name="country" value="KM" label="Comoros">Comoros</option>
-            <option name="country" value="CG" label="Congo - Brazzaville">
+            <option value="TD" label="Chad">Chad</option>
+            <option value="KM" label="Comoros">Comoros</option>
+            <option value="CG" label="Congo - Brazzaville">
               Congo - Brazzaville
             </option>
-            <option name="country" value="CD" label="Congo - Kinshasa">
+            <option value="CD" label="Congo - Kinshasa">
               Congo - Kinshasa
             </option>
-            <option name="country" value="CI" label="Côte d’Ivoire">
+            <option value="CI" label="Côte d’Ivoire">
               Côte d’Ivoire
             </option>
-            <option name="country" value="DJ" label="Djibouti">Djibouti</option>
-            <option name="country" value="EG" label="Egypt">Egypt</option>
-            <option name="country" value="GQ" label="Equatorial Guinea">
+            <option value="DJ" label="Djibouti">Djibouti</option>
+            <option value="EG" label="Egypt">Egypt</option>
+            <option value="GQ" label="Equatorial Guinea">
               Equatorial Guinea
             </option>
-            <option name="country" value="ER" label="Eritrea">Eritrea</option>
-            <option name="country" value="ET" label="Ethiopia">Ethiopia</option>
-            <option name="country" value="GA" label="Gabon">Gabon</option>
-            <option name="country" value="GM" label="Gambia">Gambia</option>
-            <option name="country" value="GH" label="Ghana">Ghana</option>
-            <option name="country" value="GN" label="Guinea">Guinea</option>
-            <option name="country" value="GW" label="Guinea-Bissau">
+            <option value="ER" label="Eritrea">Eritrea</option>
+            <option value="ET" label="Ethiopia">Ethiopia</option>
+            <option value="GA" label="Gabon">Gabon</option>
+            <option value="GM" label="Gambia">Gambia</option>
+            <option value="GH" label="Ghana">Ghana</option>
+            <option value="GN" label="Guinea">Guinea</option>
+            <option value="GW" label="Guinea-Bissau">
               Guinea-Bissau
             </option>
-            <option name="country" value="KE" label="Kenya">Kenya</option>
-            <option name="country" value="LS" label="Lesotho">Lesotho</option>
-            <option name="country" value="LR" label="Liberia">Liberia</option>
-            <option name="country" value="LY" label="Libya">Libya</option>
-            <option name="country" value="MG" label="Madagascar">Madagascar</option>
-            <option name="country" value="MW" label="Malawi">Malawi</option>
-            <option name="country" value="ML" label="Mali">Mali</option>
-            <option name="country" value="MR" label="Mauritania">Mauritania</option>
-            <option name="country" value="MU" label="Mauritius">Mauritius</option>
-            <option name="country" value="YT" label="Mayotte">Mayotte</option>
-            <option name="country" value="MA" label="Morocco">Morocco</option>
-            <option name="country" value="MZ" label="Mozambique">Mozambique</option>
-            <option name="country" value="NA" label="Namibia">Namibia</option>
-            <option name="country" value="NE" label="Niger">Niger</option>
-            <option name="country" value="NG" label="Nigeria">Nigeria</option>
-            <option name="country" value="RW" label="Rwanda">Rwanda</option>
-            <option name="country" value="RE" label="Réunion">Réunion</option>
-            <option name="country" value="SH" label="Saint Helena">
+            <option value="KE" label="Kenya">Kenya</option>
+            <option value="LS" label="Lesotho">Lesotho</option>
+            <option value="LR" label="Liberia">Liberia</option>
+            <option value="LY" label="Libya">Libya</option>
+            <option value="MG" label="Madagascar">Madagascar</option>
+            <option value="MW" label="Malawi">Malawi</option>
+            <option value="ML" label="Mali">Mali</option>
+            <option value="MR" label="Mauritania">Mauritania</option>
+            <option value="MU" label="Mauritius">Mauritius</option>
+            <option value="YT" label="Mayotte">Mayotte</option>
+            <option value="MA" label="Morocco">Morocco</option>
+            <option value="MZ" label="Mozambique">Mozambique</option>
+            <option value="NA" label="Namibia">Namibia</option>
+            <option value="NE" label="Niger">Niger</option>
+            <option value="NG" label="Nigeria">Nigeria</option>
+            <option value="RW" label="Rwanda">Rwanda</option>
+            <option value="RE" label="Réunion">Réunion</option>
+            <option value="SH" label="Saint Helena">
               Saint Helena
             </option>
-            <option name="country" value="SN" label="Senegal">Senegal</option>
-            <option name="country" value="SC" label="Seychelles">Seychelles</option>
-            <option name="country" value="SL" label="Sierra Leone">
+            <option value="SN" label="Senegal">Senegal</option>
+            <option value="SC" label="Seychelles">Seychelles</option>
+            <option value="SL" label="Sierra Leone">
               Sierra Leone
             </option>
-            <option name="country" value="SO" label="Somalia">Somalia</option>
-            <option name="country" value="ZA" label="South Africa">
+            <option value="SO" label="Somalia">Somalia</option>
+            <option value="ZA" label="South Africa">
               South Africa
             </option>
-            <option name="country" value="SD" label="Sudan">Sudan</option>
-            <option name="country" value="SZ" label="Swaziland">Swaziland</option>
-            <option name="country" value="ST" label="São Tomé and Príncipe">
+            <option value="SD" label="Sudan">Sudan</option>
+            <option value="SZ" label="Swaziland">Swaziland</option>
+            <option value="ST" label="São Tomé and Príncipe">
               São Tomé and Príncipe
             </option>
-            <option name="country" value="TZ" label="Tanzania">Tanzania</option>
-            <option name="country" value="TG" label="Togo">Togo</option>
-            <option name="country" value="TN" label="Tunisia">Tunisia</option>
-            <option name="country" value="UG" label="Uganda">Uganda</option>
-            <option name="country" value="EH" label="Western Sahara">
+            <option value="TZ" label="Tanzania">Tanzania</option>
+            <option value="TG" label="Togo">Togo</option>
+            <option value="TN" label="Tunisia">Tunisia</option>
+            <option value="UG" label="Uganda">Uganda</option>
+            <option value="EH" label="Western Sahara">
               Western Sahara
             </option>
-            <option name="country" value="ZM" label="Zambia">Zambia</option>
-            <option name="country" value="ZW" label="Zimbabwe">Zimbabwe</option>
+            <option value="ZM" label="Zambia">Zambia</option>
+            <option value="ZW" label="Zimbabwe">Zimbabwe</option>
           </optgroup>
           <optgroup id="country-optgroup-Americas" label="Americas">
             <option value="AI" label="Anguilla">Anguilla</option>
