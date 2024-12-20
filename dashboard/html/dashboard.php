@@ -28,8 +28,11 @@ if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {
 if (isset($_POST["create"])) {
     $name = $_POST['name'] ?? '';
     $position = $_POST['position'] ?? '';
+    //toay modifications
+    $club_name = $_POST['club'];
+    $nationality = $_POST['country'];
 
-    // check the inputs are not empty
+    // check the inputs are empty
     if (!empty($name) && !empty($position)) {
         $name = mysqli_real_escape_string($conn, $name);//to ignore any psecial character
         $position = mysqli_real_escape_string($conn, $position);
@@ -44,13 +47,10 @@ if (isset($_POST["create"])) {
     } else {
         echo "Please provide all required fields.";
     }
-}
 
-// check of the club
-if (isset($_POST["create"])) {
-  $club_name = $_POST['club'];
-
-  if (!empty($club_name)) {
+    //today modifications
+//check the inputs are empty
+    if (!empty($club_name)) {
       $club_name = mysqli_real_escape_string($conn, $club_name);
 
       $sql = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
@@ -62,47 +62,54 @@ if (isset($_POST["create"])) {
   } else {
       echo "Club name cannot be empty.";
   }
-}
 
-// check for nationality
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['country']) && !empty($_POST['country'])) {
-        //sewlected country
-        $country = mysqli_real_escape_string($conn, $_POST['country']);
+  //check the inputs are empty
+  if (!empty($nationality)) {
+    //sewlected country
+    $country = mysqli_real_escape_string($conn, $_POST['country']);
 
-        
-        $sql = "INSERT INTO countries (name) VALUES ('$country')";
-        if (mysqli_query($conn, $sql)) {
-            echo "it's done " . htmlspecialchars($country);
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
+    
+    $sql = "INSERT INTO countries (name) VALUES ('$country')";
+    if (mysqli_query($conn, $sql)) {
+        echo "it's done " . htmlspecialchars($country);
     } else {
-        echo "choose a country";
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+} else {
+    echo "choose a country";
 }
+
+}
+
 
 // getting all players   
 $sql = 'SELECT name, position, player_id FROM players';
 $result = mysqli_query($conn, $sql);
-
 // gettign all clubs 
 $sql_clubs = "SELECT club_id, club_name FROM clubs";
 $result_clubs = mysqli_query($conn, $sql_clubs);
-$clubs = mysqli_fetch_all($result_clubs, MYSQLI_ASSOC);
-mysqli_free_result($result_clubs);
-
 // getting all nationalities
 $sql_nationalities = "SELECT nationality_id, nationality_name FROM nationalities";
 $result_nationalities = mysqli_query($conn, $sql_nationalities);
-$nationalities = mysqli_fetch_all($result_nationalities, MYSQLI_ASSOC);
-mysqli_free_result($result_nationalities);
 if (!$result) {
     die("Query failed: " . mysqli_error($conn));
 }
 
 $players = mysqli_fetch_all($result, MYSQLI_ASSOC);
 mysqli_free_result($result);
+
+$clubs = mysqli_fetch_all($result_clubs, MYSQLI_ASSOC);
+mysqli_free_result($result_clubs);
+
+$nationalities = mysqli_fetch_all($result_nationalities, MYSQLI_ASSOC);
+mysqli_free_result($result_nationalities);
+
+//new modification
+// to print the plyer infos in the prici[ale dashboard]
+print_r($players);
+print_r($clubs);
+print_r($nationalities);
+//new modification
 
 mysqli_close($conn);
 
