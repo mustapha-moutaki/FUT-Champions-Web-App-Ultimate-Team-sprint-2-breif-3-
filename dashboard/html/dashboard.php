@@ -1,5 +1,304 @@
-<?php
+<!--?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "players_db";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// delete the player
+if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {
+    $delete_id = intval($_GET['delete_id']);// return to number
+    $delete_sql = "DELETE FROM players WHERE player_id = $delete_id";
+
+    if ($conn->query($delete_sql) === TRUE) {
+        // realod the page 
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+}
+
+//  add player
+if (isset($_POST["create"])) {
+    $name = $_POST['name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    //toay modifications
+    $club_name = $_POST['club'];
+    $nationality = $_POST['country'];
+
+    // check the inputs are empty
+    if (!empty($name) && !empty($position) && !empty($club_name) && !empty($nationality)) {
+        $name = mysqli_real_escape_string($conn, $name);//to ignore any psecial character
+        $position = mysqli_real_escape_string($conn, $position);
+         $club_name = mysqli_real_escape_string($conn, $club_name);
+        $nationality = mysqli_real_escape_string($conn, $nationality);
+
+
+
+        $sql_clubs = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
+        mysqli_query($conn, $sql_clubs);
+        $club_id = mysqli_insert_id($conn);
+
+
+          $sql_nationalities = "INSERT INTO nationalities (nationality_name) VALUES ('$nationality')";
+        mysqli_query($conn, $sql_nationalities);
+        $nationality_id = mysqli_insert_id($conn);
+
+
+        $sql_player = "INSERT INTO players (name, position, club_id,nationality_id) VALUES ('$name', '$position','club_id', 'nationality_id')";
+       
+    } else {
+        echo "Please provide all required fields.";
+    }
+
+
+
+}
+
+
+// getting all players   
+$sql = "SELECT 
+        players.player_id, 
+        players.name, 
+        players.position, 
+        clubs.club_name, 
+        nationalities.nationality_name
+    FROM 
+        players
+    left JOIN 
+        clubs ON players.club_id = clubs.club_id
+    left JOIN 
+        nationalities ON players.nationality_id = nationalities.nationality_id
+";
+
+
+
+$result = mysqli_query($conn, $sql);
+
+// gettign all clubs 
+$sql_clubs = "SELECT club_id, club_name FROM clubs";
+$result_clubs = mysqli_query($conn, $sql_clubs);
+
+// getting all nationalities
+$sql_nationalities = "SELECT nationality_id, nationality_name FROM nationalities";
+$result_nationalities = mysqli_query($conn, $sql_nationalities);
+
+if (!$result || !$result_clubs || !$result_nationalities) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+$players = mysqli_fetch_all($result, MYSQLI_ASSOC);
+mysqli_free_result($result);
+
+$clubs = mysqli_fetch_all($result_clubs, MYSQLI_ASSOC);
+mysqli_free_result($result_clubs);
+
+$nationalities = mysqli_fetch_all($result_nationalities, MYSQLI_ASSOC);
+mysqli_free_result($result_nationalities);
+
+//new modification
+// to print the plyer infos in the prici[ale dashboard]
+print_r($players);
+print_r($clubs);
+print_r($nationalities);
+//new modification
+
+mysqli_close($conn);
+
+?-->
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "players_db";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// delete the player
+if (isset($_GET['delete_id']) && is_numeric($_GET['delete_id'])) {
+    $delete_id = intval($_GET['delete_id']);
+    $delete_sql = "DELETE FROM players WHERE player_id = $delete_id";
+
+    if ($conn->query($delete_sql) === TRUE) {
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit();
+    } else {
+        echo "Error deleting record: " . $conn->error;
+    }
+}
+
+// adding new player with nationality and club
+if (isset($_POST["create"])) {
+    $name = $_POST['name'] ?? '';
+    $position = $_POST['position'] ?? '';
+    $club_name = $_POST['club'] ?? '';
+    $nationality = $_POST['country'] ?? '';
+
+    // new modification
+    // Performance attributes
+$rating = $_POST['rating'] ?? null;
+$diving = $_POST['diving'] ?? null;
+$handling = $_POST['handling'] ?? null;
+$kicking = $_POST['kicking'] ?? null;
+$reflexes = $_POST['reflexes'] ?? null;
+$speed = $_POST['speed'] ?? null;
+
+$passing = $_POST['passing'] ?? null;
+$pace = $_POST['pace'] ?? null;
+$shooting = $_POST['shooting'] ?? null;
+$dribbling = $_POST['dribbling'] ?? null;
+$defending = $_POST['defending'] ?? null;
+$physical = $_POST['physical'] ?? null;
+    // new modification---------------------------------------------------------------------
+
+    // check inputs
+    if (!empty($name) && !empty($position) && !empty($club_name) && !empty($nationality)) {
+        // cleaning inputs
+        $name = mysqli_real_escape_string($conn, $name);
+        $position = mysqli_real_escape_string($conn, $position);
+        $club_name = mysqli_real_escape_string($conn, $club_name);
+        $nationality = mysqli_real_escape_string($conn, $nationality);
+
+         // Performance attributes
+$rating = mysqli_real_escape_string($conn, $rating);
+$diving =mysqli_real_escape_string($conn, $diving);
+$handling = mysqli_real_escape_string($conn, $handling);
+$kicking = mysqli_real_escape_string($conn, $kicking);
+$reflexes = mysqli_real_escape_string($conn, $reflexes);
+$speed = mysqli_real_escape_string($conn, $speed);
+
+$passing = mysqli_real_escape_string($conn, $passing);
+$pace =mysqli_real_escape_string($conn, $pace);
+$shooting = mysqli_real_escape_string($conn, $shooting);
+$dribbling = mysqli_real_escape_string($conn, $dribbling);
+$defending = mysqli_real_escape_string($conn, $defending);
+$physical = mysqli_real_escape_string($conn, $physical);
+
+if ($position === 'gk') {
+  $sql_player_stats = "INSERT INTO player_stats (pace, shooting, passing, dribbling, defending, physical) 
+                      VALUES ('pace', 'shooting', 'passing', 'dribbling', 'defending', 'physical')";
+  mysqli_query($conn, $sql_player_stats);
+  $sql_player_stats_id = mysqli_insert_id($conn);
+  
+  //     goalkeeper_stats مع player_id
+  $goalkeeper_stats = "INSERT INTO goalkeeper_stats (player_id, diving, handling, kicking, reflexes, speed, positioning) 
+                       VALUES ('$sql_player_stats_id', 'diving', 'handling', 'kicking', 'reflexes', 'speed', 'positioning')";
+  mysqli_query($conn, $goalkeeper_stats);
+  $goalkeeper_stats_id = mysqli_insert_id($conn);
+} else {
+  // $player_id = 2   
+  $goalkeeper_stats = "INSERT INTO goalkeeper_stats (player_id, diving, handling, kicking, reflexes, speed, positioning) 
+                       VALUES ('player_id', 'diving', 'handling', 'kicking', 'reflexes', 'speed', 'positioning')";
+  mysqli_query($conn, $goalkeeper_stats);
+  $goalkeeper_stats_id = mysqli_insert_id($conn);
+}
+
+
+
+
+
+
+    // new modification------------------------------------------------------------------------------------
+     
+        $sql_clubs = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
+        mysqli_query($conn, $sql_clubs);
+        $club_id = mysqli_insert_id($conn);
+
+        $sql_nationalities = "INSERT INTO nationalities (nationality_name) VALUES ('$nationality')";
+        mysqli_query($conn, $sql_nationalities);
+        $nationality_id = mysqli_insert_id($conn);
+
+        // enter playr and rely him with nationality and club
+        $sql_player = "INSERT INTO players (name, position, club_id, nationality_id) 
+                       VALUES ('$name', '$position', $club_id, $nationality_id)";
+        if ($conn->query($sql_player) === TRUE) {
+            echo "added with seccessfully";
+        } else {
+            echo "Error: " . $sql_player . "<br>" . $conn->error;
+        }
+    } else {
+        echo "enter the inputs";
+    }
+    // header("Location: " . $_SERVER['PHP_SELF']);
+}
+
+// getting player with nationality and club
+$sql = "
+    SELECT 
+        players.player_id, 
+        players.name, 
+        players.position, 
+        clubs.club_name, 
+        nationalities.nationality_name,
+        rating
+    FROM 
+        players
+    LEFT JOIN 
+        clubs ON players.club_id = clubs.club_id
+    LEFT JOIN 
+        nationalities ON players.nationality_id = nationalities.nationality_id
+    
+    left join
+    player_stats ON player_stats.player_id = players.player_id
+    left join
+    goalkeeper_stats ON goalkeeper_stats.player_id = players.player_id
+";
+$result = mysqli_query($conn, $sql);
+
+//  getting all the  clubs
+$sql_clubs = "SELECT club_id, club_name FROM clubs";
+$result_clubs = mysqli_query($conn, $sql_clubs);
+
+//  getting all nationalities
+$sql_nationalities = "SELECT nationality_id, nationality_name FROM nationalities";
+$result_nationalities = mysqli_query($conn, $sql_nationalities);
+
+// check the error
+if (!$result || !$result_clubs || !$result_nationalities) {
+    die("Query failed: " . mysqli_error($conn));
+}
+
+
+//new modificationnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+$sql_player_stats = " SELECT pace, shooting, passing, dribling, defending, physical
+FROM player_stats";
+$result_player_stats = mysqli_query($conn, $sql_player_stats);
+
+$player_stats = mysqli_fetch_all($result_player_stats, MYSQLI_ASSOC);
+
+
+$sql_goalkeeper_stats = "SELECT diving, handling, kicking, reflexes, speed, positioning FROM goalkeeper_stats";
+$result_goalkeeper_stats = mysqli_query($conn, $sql_goalkeeper_stats);
+$goalkeeper_stats = mysqli_fetch_all($result_goalkeeper_stats, MYSQLI_ASSOC);
+//new modificationnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+
+
+// transform results to arrays
+$players = mysqli_fetch_all($result, MYSQLI_ASSOC);
+$clubs = mysqli_fetch_all($result_clubs, MYSQLI_ASSOC);
+$nationalities = mysqli_fetch_all($result_nationalities, MYSQLI_ASSOC);
+
+// showing data  
+print_r($players);
+print_r($clubs);
+print_r($nationalities);
+print_r($player_stats);
+print_r($goalkeeper_stats);
+
+//  close the connect
+mysqli_close($conn);
+?>
+
+
+<!--?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -53,11 +352,11 @@ if (isset($_POST["create"])) {
     if (!empty($club_name)) {
       $club_name = mysqli_real_escape_string($conn, $club_name);
 
-      $sql = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
-      if ($conn->query($sql) === TRUE) {
+      $sql_clubs = "INSERT INTO clubs (club_name) VALUES ('$club_name')";
+      if ($conn->query($sql_clubs) === TRUE) {
           echo "Club added successfully!";
       } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
+          echo "Error: " . $sql_clubs . "<br>" . $conn->error;
       }
   } else {
       echo "Club name cannot be empty.";
@@ -69,11 +368,11 @@ if (isset($_POST["create"])) {
     $country = mysqli_real_escape_string($conn, $_POST['country']);
 
     
-    $sql = "INSERT INTO countries (name) VALUES ('$country')";
-    if (mysqli_query($conn, $sql)) {
+    $sql_nationalities = "INSERT INTO countries (name) VALUES ('$country')";
+    if (mysqli_query($conn, $sql_nationalities)) {
         echo "it's done " . htmlspecialchars($country);
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql_nationalities . "<br>" . mysqli_error($conn);
     }
 } else {
     echo "choose a country";
@@ -83,7 +382,22 @@ if (isset($_POST["create"])) {
 
 
 // getting all players   
-$sql = 'SELECT name, position, player_id FROM players';
+$sql = "SELECT 
+        players.player_id, 
+        players.name, 
+        players.position, 
+        clubs.club_name, 
+        nationalities.nationality_name
+    FROM 
+        players
+    left JOIN 
+        clubs ON players.club_id = clubs.club_id
+    left JOIN 
+        nationalities ON players.nationality_id = nationalities.nationality_id
+";
+
+
+
 $result = mysqli_query($conn, $sql);
 // gettign all clubs 
 $sql_clubs = "SELECT club_id, club_name FROM clubs";
@@ -113,7 +427,7 @@ print_r($nationalities);
 
 mysqli_close($conn);
 
-?>
+?-->
 
 
 
@@ -739,6 +1053,7 @@ $result = mysqli_query($conn, $sql);
                             <th class="text-truncate">club</th>
                             <th class="text-truncate">full name</th>
                             <th class="text-truncate">position</th>
+                            <th class="text-truncate">nationality</th>
                             <th class="text-truncate" style="text-align:center; float:center;">stats</th>
                             <th class="text-truncate">delete All(01)</th>
                           </tr>
@@ -751,8 +1066,9 @@ $result = mysqli_query($conn, $sql);
                             </a></td>
                             <td>
                               <div class="avatar avatar-sm">
-                                <div class="avatar-initial bg-label-success rounded-circle">
-                                  <i class="ri-check-line ri-16px"></i>
+                                <div class="avatar-initial bg-label-success rounded-circle" style='font-size:9px; text-align:center;'>
+                                  <!-- <i class="ri-check-line ri-16px"></i> -->
+                                <?= $row['club_name'] ?>
                                 </div>
                               </div>
                             </td>
@@ -773,6 +1089,9 @@ $result = mysqli_query($conn, $sql);
                             </td>
                             <td class="text-truncate">
                             <?= $row['position'] ?>
+                            </td>
+                            <td class="text-truncate">
+                            <?= $row['nationality_name']; ?>
                             </td>
                             <td class='diveogstatsopt'><span class="badge stats_player_span">
                               <div class="stats_of_player">
