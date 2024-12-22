@@ -60,27 +60,6 @@ showStats.addEventListener('click', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //function to display inputs for selected position
 selected.addEventListener('change', () => {
     if (selected.value === 'GK') {
@@ -133,8 +112,8 @@ document.getElementById("positioning").value ='';
 // localStorage.clear()
 
 // add player to array => local storage function
-addPlayerBtn.addEventListener('click', (event) => {
-     event.preventDefault();
+addPlayerBtn.addEventListener('click', () => {
+    //  event.preventDefault();
 
         if (formValidation()) {
             
